@@ -1,10 +1,54 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="logo">
+  <router-link v-if="state" to="/">
+  <img src="./assets/logo.png" alt="logo"/>
+  </router-link>
+   <router-link v-else to="/">
+  <img src="./assets/logo_light.png" alt="logo"/>
+  </router-link>
+  </div>
+  
+  <div class="mylogo">
+   <router-link v-if="state" to="/"><img src="./assets/mylogo2.png" alt="mylogo"/></router-link>
+  <router-link v-else to="/"><img src="./assets/mylogo.png" alt="mylogo"/></router-link>
+      
+  </div>
+  
+  <div class="links" :class="{black: state == true}">
+     <router-link to="/">Home</router-link>
+     <router-link :to="{name: 'about'}">About</router-link>
+  </div>
   </nav>
-  <router-view/>
+  <router-view v-slot="{Component, route}">
+    <transition name="fade">
+      <component :is="Component" :key="route.path" />
+    </transition>
+  </router-view>
+
+  
 </template>
+
+<script>
+import router from '@/router'
+import {ref} from 'vue'
+export default {
+  setup(){
+    var state = ref('')
+    if(localStorage.theme === 'dark'){
+      state.value = true
+    }else{
+      state.value = false
+    }
+    
+
+    return {
+      state
+    }
+}
+}
+
+</script>
 
 <style>
 #app {
@@ -15,16 +59,66 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
+.dark{
+  background-color: #151E29;
 }
 
-nav a {
+nav{
+  display: inline-block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+nav .links {
+  padding: 15px;
+  text-align: right;
+  justify-content: right;
+
+}
+
+nav .logo{
+  justify-content: left;
+  width: 50px;
+  height: 0px;
+  margin: 5px;
+  
+  
+}
+
+nav .mylogo{
+  justify-content: center;
+  width: 35vh;
+  max-width: auto;
+  height: 0px;
+  display: inline-block;
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+nav .links a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #1B2737;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+nav .links.black a {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
 }
+
+nav .links a.router-link-exact-active {
+  color: white;
+  background: #1B2737;
+  text-decoration: 3px underline solid white;
+}
+
+
 </style>

@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.footnotes {
+  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+}
+
+.csl-entry {
+  @apply my-5;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+
+@media screen and (max-width: 540px) {
+  .view {
+      width: 400px;
+      padding: 20px;
+  }
+  .homelist{
+    padding: 15px;
+  }
+  
+}
+
+/* For Tablets */
+@media screen and (min-width: 540px) and (max-width: 780px) {
+  .view {
+      width: 600px;
+      padding: 20px;
+  }
+  .homelist{
+    padding: 15px;
+  }
+  
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {  
+
+  .view {
+    width: 400px;
+    padding: 20px;
+  }
+  .content{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: small;
+    text-align: justify;
+  }
+
+  .homelist{
+    padding: 15px;
+  }
+  
+  /* Your CSS Code for this device size */    
+
+ }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {  
+  .view {
+    width: 400px;
+    padding: 20px;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */    
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 900px) {  
+  .view {
+    width: 500px;
+    padding: 20px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: larger;
+  text-align: justify;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */    
+
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {  
+  .view {
+    width: 400px;
+    padding: 20px;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */    
+
+}      
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .view {
+    width: 1000px;
+    padding: 20px;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */ 
+
+}
+
+@media only screen and (min-width: 280px) and (max-width: 400px) {
+  .view {
+    width: 350px;
+    padding: 15px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  text-align: justify;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */ 
+
+}
+
+@media only screen and (max-width: 320px) {
+  .view {
+    width: 300px;
+    padding: 15px;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */ 
+
+}
+
+@media only screen and (max-width: 280px) {
+  .view {
+    width: 300px;
+    padding: 20px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-small;
+  text-align: justify;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */ 
+
+}
+
+@media only screen and (min-width: 700px) {
+  .view {
+    width: 750px;
+    padding: 20px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: larger;
+  text-align: justify;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device size */ 
+
+}
+
+
+/* According to Mobile Orientation */
+@media only screen and (orientation: landscape) {   
+  .view {
+    width: 710px;
+    padding: 20px;
+}
+.content{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: auto;
+  text-align: justify;
+}
+
+.homelist{
+  padding: 15px;
+}
+  /* Your CSS Code for this device orientation */    
+
+}
