@@ -3,13 +3,12 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   experimental: {
-    optimizeUniversalDefaults: true,
+    optimizeUniversalDefaults: false,
   },
   content: [
-    './src/views/**/*.vue',
-    './src/components/**/*.vue',
-    './src/App.vue'
-  ],
+      './src/**/*.{js,jsx,ts,tsx,vue}',
+      './public/**/*.html',
+    ],
   darkMode: 'class',
   theme: {
     extend: {

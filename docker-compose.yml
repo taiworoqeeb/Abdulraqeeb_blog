@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  vue-ui:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080
+    container_name: Abdulraqeeb-Blog
+    image: abdulraqeeb-blog:1.0.0
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    env_file:
+      - .env
+    command: yarn serve
+    restart: unless-stopped
