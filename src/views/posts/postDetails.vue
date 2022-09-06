@@ -40,22 +40,19 @@
     
 </template>
 
-<script>
+<script setup>
 import {getPostId, getNextPost, getPreviousPost} from '../../composite/Posts'
 import {marked} from 'marked'
 import innerPost from './innerPost.vue'
 import {ref} from 'vue'
 import router from '@/router'
 import Theme from '../../components/theme.vue'
-export default {
-    props: ["id"],
-    components: {
-        innerPost,
-        Theme
-    },
-    setup(props){
+        const props = defineProps({
+            id: String
+        })
 
         var id = props.id
+        
         var nextPost = ref(null)
         var previousPost= ref(null)
         var darkPost = ref('')
@@ -85,7 +82,7 @@ export default {
             router.go(-1)
         }
         
-        return{
+        defineExpose({
             post,
             error,
             markDown,
@@ -93,9 +90,8 @@ export default {
             previousPost,
             darkPost,
             back
-        }
-    }
-}
+        })
+ 
 </script>
 
 <style scoped>

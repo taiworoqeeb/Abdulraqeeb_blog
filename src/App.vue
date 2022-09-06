@@ -29,11 +29,9 @@
   
 </template>
 
-<script>
-import router from '@/router'
+<script setup>
 import {ref} from 'vue'
-export default {
-  setup(){
+
     var state = ref('')
     if(localStorage.theme === 'dark'){
       state.value = true
@@ -42,11 +40,10 @@ export default {
     }
     
 
-    return {
+    defineExpose({
       state
-    }
-}
-}
+    })
+
 
 </script>
 

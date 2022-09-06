@@ -11,10 +11,21 @@
        
 </template>
 
-<script>
-export default {
-    props: ['post', 'markDown']
-}
+<script setup>
+import { ref } from 'vue';
+
+const props = defineProps({
+    post: Object,
+    markDown: Function
+})
+
+const post = ref(props.post);
+const markDown = ref(props.markDown)
+
+defineExpose({
+    post,
+    markDown
+})
 
 </script>
 

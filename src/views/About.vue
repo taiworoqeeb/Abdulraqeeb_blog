@@ -39,14 +39,9 @@
     
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import Theme from '../components/theme.vue'
-export default {
-    components: {
-        Theme
-    },
-    setup(){
         var state = ref(null)
 
         if(localStorage.theme === 'dark'){
@@ -55,11 +50,10 @@ export default {
             state.value = false
         }
 
-        return {
+        defineExpose({
             state
-        }
-    }
-}
+        })
+   
 
 </script>
 

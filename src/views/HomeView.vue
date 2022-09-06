@@ -38,18 +38,14 @@
  
 </template>
 
-<script>
+<script setup>
 import {ref, onMounted} from 'vue'
 import router from '@/router'
 import {getPosts} from '../composite/Posts'
 import Theme from '../components/theme.vue'
-export default {
-  name: 'Home',
-  components: {
-    Theme
-  },
-  setup(){
+
     const { posts, error, search, load, onSearch} = getPosts();
+    
     load()
 
     var theme = ref(null)
@@ -61,15 +57,14 @@ export default {
       theme.value = 'light'
     }
 
-    return {
+    defineExpose({
       posts, 
       error,
       search,
       onSearch,
       theme,
-    }
-  }
-}
+    })
+ 
 </script>
 
 <style scoped>

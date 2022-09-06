@@ -5,11 +5,10 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import router from '@/router'
 import { ref } from 'vue'
-export default {
-    setup(){
+
 
         var code = ref(null)
         var darkTheme = ref('')
@@ -59,15 +58,13 @@ export default {
     }
     // console.log(code.value)
 
-    return {
+    defineExpose({
       setDark,
       setLight,
       darkTheme,
       lightTheme,
       code
-    }
-    }
-}
+    })
 
 </script>
 
