@@ -1,13 +1,12 @@
 <template>
-        <main>
+        <main class="w-full">
             <header>
                 <img :class="{black: state == true}" src="../assets/myPics.jpg" alt="myPics">
-                <div class="mylinks" :class="{black: state == true}">
-                    <a href="https://twitter.com/TaiwoRaqeeb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
-                    <a href="https://linkedin.com/in/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-                    <a href="https://github.com/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-github" /></a>
-                </div>
-                
+                    <div class="mylinks" :class="{black: state == true}">
+                        <a href="https://twitter.com/TaiwoRaqeeb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+                        <a href="https://linkedin.com/in/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+                        <a href="https://github.com/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-github" /></a>
+                    </div>
             </header >
             <article :class="{black: state == true}">
                 <p> I am <b>Abdulraqeeb Taiwo</b>, a fullstack developer. I work with JavaScript/TypeScript, i have more than 5 years of programming experience and 1+ Nodejs professional experience.
@@ -29,14 +28,10 @@
                  </p>
             </article>
         
-         <div class="footer">
+        <div class="footer">
             <Theme />
         </div>
-        </main>
-        
-        
-                
-    
+    </main>
 </template>
 
 <script setup>

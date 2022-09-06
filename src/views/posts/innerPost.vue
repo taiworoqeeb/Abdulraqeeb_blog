@@ -2,13 +2,12 @@
     <main>
         <header class="innerpage">
             <img class="img grid-element" :src="post.image_url">
-            <br />
+            <br/>
             <h1 class="text-2xl font-bold md:text-4xl dark:text-white text-center mb-12"> {{post.title}}</h1>
             <p class="text-xl dark:text-white font-bold mb-4 text-justify">{{post.desc}}</p>
         </header>
             <article class="content prose dark:prose-dark text-justify max-w-3xl" v-html="markDown(post.content)"/>
-        </main>
-       
+    </main>
 </template>
 
 <script setup>
