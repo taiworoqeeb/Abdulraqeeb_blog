@@ -5,6 +5,7 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: false,
   },
+  mode: 'jit',
   content: [
       './src/**/*.{js,jsx,ts,tsx,vue}',
       './public/**/*.html',
@@ -25,8 +26,13 @@ module.exports = {
         sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: colors.teal,
-        gray: colors.neutral,
+        'primary-light': '#F7F8FC',
+				'secondary-light': '#FFFFFF',
+				'ternary-light': '#f6f7f8',
+
+				'primary-dark': '#0D2438',
+				'secondary-dark': '#102D44',
+				'ternary-dark': '#1E3851',
       },
       typography: (theme) => ({
         DEFAULT: {

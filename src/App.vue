@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav :class="{dark: state == true}">
   <div class="logo">
   <router-link v-if="state" to="/">
   <img src="./assets/logo.png" alt="logo"/>
@@ -57,7 +57,8 @@ import {ref} from 'vue'
 }
 
 .dark{
-  background-color: #151E29;
+  --tw-bg-opacity: 1;
+    background-color: rgb(13 36 56 / var(--tw-bg-opacity));
 }
 
 nav{
@@ -97,7 +98,7 @@ nav .mylogo{
 
 nav .links a {
   font-weight: bold;
-  color: #1B2737;
+  color: black;
   text-decoration: none;
   padding: 10px;
   border-radius: 4px;
@@ -112,10 +113,20 @@ nav .links.black a {
 }
 
 nav .links a.router-link-exact-active {
+  color: black;
+  text-decoration: 3px underline solid black;
+}
+nav .links.black a.router-link-exact-active {
   color: white;
-  background: #1B2737;
   text-decoration: 3px underline solid white;
 }
 
+nav .links a:hover{
+  color: rgb(94, 48, 219);
+}
+nav .links a.router-link-exact-active:hover{
+  color: rgb(94, 48, 219);
+  text-decoration: 3px underline solid rgb(94, 48, 219);
+}
 
 </style>

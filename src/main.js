@@ -22,3 +22,16 @@ createApp(App)
   .component("font-awesome-icon", FontAwesomeIcon)
   .use(router)
   .mount("#app");
+
+  const appTheme = localStorage.getItem('theme');
+
+  // Check what is the active theme and change theme when user clicks on the theme button in header.
+  if (
+    appTheme === 'dark' &&
+    (document.documentElement.classList.contains('dark') ||
+    document.getElementById('app'))
+  ) {
+    document.documentElement.classList.add('bg-primary-dark');
+  } else {
+    document.documentElement.classList.add('bg-secondary-light');
+  }

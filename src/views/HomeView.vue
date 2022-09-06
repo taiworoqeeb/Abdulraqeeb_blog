@@ -129,14 +129,16 @@ import Theme from '../components/theme.vue'
     margin-bottom: 50px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 1px solid #1B2737;
-    color: #1B2737;
+    --tw-bg-opacity: 1;
+    border-bottom: 1px solid rgb(13 36 56 / var(--tw-bg-opacity));
+    color: rgb(13 36 56 / var(--tw-bg-opacity));
     border-radius: 50px;
     text-indent: 20px;
 
   }
    .submit input.dark{
-    background-color: #1B2737;
+    --tw-bg-opacity: 1;
+    background-color: rgb(13 36 56 / var(--tw-bg-opacity));
     border-bottom: 1px solid white;
   }
   .submit input::placeholder{
