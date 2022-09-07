@@ -55,7 +55,12 @@ input:-webkit-autofill:focus {
     width: 400px;
     padding: 20px;
   }
- 
+  .article{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: small;
+    text-align: justify;
+  }
 
   .homelist{
     padding: 15px;
@@ -84,6 +89,12 @@ input:-webkit-autofill:focus {
   .view {
     width: 500px;
     padding: 20px;
+}
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: larger;
+  text-align: justify;
 }
 
 .homelist{
@@ -126,7 +137,12 @@ input:-webkit-autofill:focus {
     width: 350px;
     padding: 15px;
 }
-
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  text-align: justify;
+}
 
 .homelist{
   padding: 15px;
@@ -153,7 +169,12 @@ input:-webkit-autofill:focus {
     width: 300px;
     padding: 20px;
 }
-
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: x-small;
+  text-align: justify;
+}
 
 .homelist{
   padding: 15px;
@@ -167,7 +188,12 @@ input:-webkit-autofill:focus {
     width: 750px;
     padding: 20px;
 }
-
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: larger;
+  text-align: justify;
+}
 
 .homelist{
   padding: 15px;
@@ -183,7 +209,12 @@ input:-webkit-autofill:focus {
     width: 710px;
     padding: 20px;
 }
-
+.article{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: auto;
+  text-align: justify;
+}
 
 .homelist{
   padding: 15px;

@@ -169,6 +169,7 @@ module.exports = {
           borderRadius: ['first', 'last'],
           borderWidth: ['last', 'hovered-sibling'],
           typography: ['dark'],
+          display: ['responsive']
         },
       },
     },

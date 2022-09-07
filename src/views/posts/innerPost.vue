@@ -1,12 +1,14 @@
 <template>
-    <main>
-        <section class="innerpage">
-            <img class="img grid-element" :src="post.image_url">
+    <main class="w-full ">
+        <header>
+            <img class="img" :src="post.image_url">
             <br/>
-            <h1 class="text-2xl font-bold md:text-4xl dark:text-white text-center mb-12"> {{post.title}}</h1>
-            <p class="text-xl dark:text-white font-bold mb-4 text-justify">{{post.desc}}</p>
+        </header>
+        <section class="innerpage">
+            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-12"> {{post.title}}</h1>
+            <p class="text-xl dark:text-white font-bold mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
         </section>
-            <article class="article prose dark:prose-dark text-justify max-w-3xl" :class="{dark: state == true}" v-html="markDown(post.content)"/>
+            <article class="article prose dark:prose-dark text-justify max-w-xl" :class="{dark: state == true}" v-html="markDown(post.content)"/>
     </main>
 </template>
 
@@ -41,16 +43,34 @@ defineExpose({
 <style scoped>
 
 @import "~highlight.js/styles/monokai-sublime.css";
-.innerpage img.img{
+header img.img{
+    display: flex;
     justify-content: center;
-    width: 1200px;
+    width: 750px ;
     height: 300px;
+    padding: 15px;
+    margin: auto;
+    
+}
+
+main {
+    display: inline-block;
+    min-width: 780px;
+    max-width: 810px;
+    margin-left: 15px auto;
+    margin-right: 15px auto;
+    width: 750px
+}
+.innerpage p{
+    max-width: 810px;
+    margin: 10px;
     margin-left: 5px auto;
     margin-right: 5px auto;
+    
 }
 
 .article{
-    margin: 2px;
+    margin: 10px;
     margin-left: 5px auto;
     margin-right: 5px auto;
     max-width: 810px;
