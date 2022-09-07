@@ -53,7 +53,7 @@ defineExpose({
     margin: 2px;
     margin-left: 5vh auto;
     margin-right: 5vh auto;
-    max-width: 790px;
+    max-width: 810px;
 }
 
 .article > p > img {
