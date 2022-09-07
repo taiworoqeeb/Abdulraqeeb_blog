@@ -22,11 +22,13 @@ const post = ref(props.post);
 const markDown = ref(props.markDown)
 const state = ref('')
 
-if(localStorage.theme === 'dark'){
-    state.value = true
-}else{
-    state.value = false
-}
+const appTheme = localStorage.getItem('theme');
+    if(appTheme ==='dark'){
+      state.value = true
+    }else{
+      state.value = false
+    }
+    
 
 defineExpose({
     post,

@@ -37,7 +37,8 @@
 import {ref} from 'vue'
 
     var state = ref('')
-    if(localStorage.theme === 'dark'){
+     const appTheme = localStorage.getItem('theme');
+    if(appTheme ==='dark'){
       state.value = true
     }else{
       state.value = false

@@ -42,11 +42,13 @@ import { ref } from 'vue'
 import Theme from '../components/theme.vue'
         var state = ref(null)
 
-        if(localStorage.theme === 'dark'){
+       const appTheme = localStorage.getItem('theme');
+        if(appTheme ==='dark'){
             state.value = true
         }else{
             state.value = false
         }
+    
 
         defineExpose({
             state

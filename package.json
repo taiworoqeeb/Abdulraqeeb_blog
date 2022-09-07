@@ -8,6 +8,7 @@
     "watch": "npx tailwindcss -i src/assets/tailwind.css -o dist/css/app.css --watch"
   },
   "dependencies": {
+    "@babel/core": "^7.19.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
@@ -18,7 +19,8 @@
     "highlight.js": "^11.6.0",
     "marked": "^4.1.0",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

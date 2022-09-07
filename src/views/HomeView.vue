@@ -52,9 +52,9 @@ import Theme from '../components/theme.vue'
     load()
 
     var theme = ref(null)
+     const appTheme = localStorage.getItem('theme');
     
-    
-    if(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+    if(appTheme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
         theme.value = 'dark'
     }else{
       theme.value = 'light'

@@ -16,24 +16,26 @@ import { ref } from 'vue'
         var code = ref(null)
         var darkTheme = ref('')
         var lightTheme = ref('')
-        if(localStorage.theme === 'light'){
+        var appTheme = localStorage.getItem('theme');
+        if(appTheme === 'light'){
             code.value = 'light'
             lightTheme.value = true
         }else{
              lightTheme.value = false
         }
 
-        if(localStorage.theme === 'dark'){
+        if(appTheme === 'dark'){
             code.value = 'dark'
             darkTheme.value = true
         }else{
              darkTheme.value = false
         }
 
+   
 
     function setDark(){
         
-        if(localStorage.theme === 'light'){
+        if(appTheme === 'light' || !appTheme || appTheme === null){
             localStorage.setItem('theme', 'dark')
             darkTheme.value = true
             lightTheme.value = false
@@ -44,7 +46,7 @@ import { ref } from 'vue'
 
     function setLight(){
         
-        if(localStorage.theme === 'dark'){
+        if(appTheme === 'dark' || !appTheme || appTheme === null){
             localStorage.setItem('theme', 'light')
             
             darkTheme.value = false
@@ -54,7 +56,7 @@ import { ref } from 'vue'
      
     }
 
-    if(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
+    if(appTheme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)){
         document.documentElement.classList.add('dark')
         document.getElementById('app').classList.add('dark')
     }else{

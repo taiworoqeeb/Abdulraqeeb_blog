@@ -97,7 +97,8 @@ import jsHighlight from "highlight.js/lib/languages/javascript";
         })
         }
 
-        if(localStorage.theme === 'dark'){
+         const appTheme = localStorage.getItem('theme');
+        if(appTheme === 'dark'){
             darkPost.value = 'dark'
         }else{
             darkPost.value = 'light'
