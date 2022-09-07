@@ -35,3 +35,5 @@ createApp(App)
   } else {
     document.documentElement.classList.add('bg-secondary-light');
   }
+
+ 
