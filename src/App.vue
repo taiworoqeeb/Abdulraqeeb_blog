@@ -1,4 +1,5 @@
 <template>
+<body>
 <header :class="{dark: state == true}">
   <div class="logo" key="logo">
     <router-link v-if="state" to="/">
@@ -26,6 +27,8 @@
       <component :is="Component" :key="route.path" />
     </transition>
   </router-view>
+
+</body>
 
   
 </template>
