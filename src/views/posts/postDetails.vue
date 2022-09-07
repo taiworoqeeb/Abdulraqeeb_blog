@@ -182,6 +182,6 @@ import jsHighlight from "highlight.js/lib/languages/javascript";
  .post{
     padding: 10px;
     margin: 100px auto;
-    max-width: 150vh;
+    max-width: 100%;
  }
 </style>
