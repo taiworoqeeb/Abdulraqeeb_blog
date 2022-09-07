@@ -20,6 +20,7 @@ module.exports = {
   ],
   optimization: {
     nodeEnv: 'production',
-    minimize: true
+    minimize: true,
+    runtimeChunk: 'single'
   }
 };
