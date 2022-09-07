@@ -17,6 +17,11 @@ import { ref } from 'vue'
         var darkTheme = ref('')
         var lightTheme = ref('')
         var appTheme = localStorage.getItem('theme');
+
+        if(appTheme === null){
+            localStorage.setItem('theme', 'light')
+        }
+        
         if(appTheme === 'light'){
             code.value = 'light'
             lightTheme.value = true
