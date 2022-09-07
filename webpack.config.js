@@ -1,7 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
  
 module.exports = {
-  mode: "production",
   module: {
     rules: [
       {
@@ -20,8 +19,6 @@ module.exports = {
   ],
   configureWebpack:{
     optimization: {
-    nodeEnv: 'production',
-    minimize: true,
     runtimeChunk: 'single',
     splitChunks:{
       chunks: 'all',
