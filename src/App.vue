@@ -91,7 +91,7 @@ header .logo{
 
 header .mylogo{
   justify-content: center;
-  width: 35vh;
+  width: 200px;
   max-width: auto;
   height: 0px;
   display: inline-block;

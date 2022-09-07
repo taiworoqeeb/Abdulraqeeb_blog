@@ -103,8 +103,8 @@ import Theme from '../components/theme.vue'
   .home li img{
     display: inline;
     justify-content: center;
-    max-width: 500vh;
-    height: 20vh;
+    max-width: 500px;
+    height: 150px;
     border-radius: 10px;
     border-width: 3px;
     border-color: #1B2737;

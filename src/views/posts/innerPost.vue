@@ -45,14 +45,14 @@ defineExpose({
     justify-content: center;
     width: 1200px;
     height: 300px;
-    margin-left: 5vh auto;
-    margin-right: 5vh auto;
+    margin-left: 5px auto;
+    margin-right: 5px auto;
 }
 
 .article{
     margin: 2px;
-    margin-left: 5vh auto;
-    margin-right: 5vh auto;
+    margin-left: 5px auto;
+    margin-right: 5px auto;
     max-width: 810px;
 }
 
