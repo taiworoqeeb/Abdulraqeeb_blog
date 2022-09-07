@@ -29,11 +29,11 @@
                  </p>
             </article>
         
-        <div class="footer">
+        
+        </body>
+            <div class="footer">
             <Theme />
         </div>
-        </body>
-            
     </main>
 </template>
 

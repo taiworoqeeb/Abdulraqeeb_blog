@@ -1,44 +1,47 @@
 <template>
+<main>
     <body>
-        <div class="post relative overflow-hidden">
-        <div class="backButton" :class="{dark: darkPost === 'dark'}">
-            <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>
-        </div>
+            <div class="post relative overflow-hidden">
+            <div class="backButton" :class="{dark: darkPost === 'dark'}">
+                <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>
+            </div>
 
-        <div class="view flex flex-col mb-20 items-center max-w-4xl w-full mx-auto">
-            <article v-if="post" :key="post._id" >
-                <innerPost :post="post" :markDown="markDown" />
-                <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
-                    <div v-if="previousPost" :key="previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
-                    <router-link :to="{name: 'Post', params:{id: previousPost._id}}"  >
-                        <p class="uppercase text-gray-500 px-5 mb-4 dark:text-white dark:opacity-60"> Previous </p>
-                        <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">
-                        {{previousPost.title}}
-                        </h4>
-                        <font-awesome-icon class=" arrow mx-auto px-5 md:mr-0 mt-auto" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-left-long" />
-                    </router-link>
+            <div class="view flex flex-col mb-20 items-center max-w-4xl w-full mx-auto">
+                <article v-if="post" :key="post._id" >
+                    <innerPost :post="post" :markDown="markDown" />
+                    <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
+                        <div v-if="previousPost" :key="previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
+                        <router-link :to="{name: 'Post', params:{id: previousPost._id}}"  >
+                            <p class="uppercase text-gray-500 px-5 mb-4 dark:text-white dark:opacity-60"> Previous </p>
+                            <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">
+                            {{previousPost.title}}
+                            </h4>
+                            <font-awesome-icon class=" arrow mx-auto px-5 md:mr-0 mt-auto" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-left-long" />
+                        </router-link>
+                        </div>
+
+                        <div v-if="nextPost" :key="nextPost._id" class="next" :class="{dark: darkPost === 'dark'}" >
+                        <router-link :to="{name: 'Post', params:{id: nextPost._id}}"  >
+                            <p class="uppercase text-gray-500 mb-4 px-5 dark:text-white dark:opacity-60"> Next</p>
+                            <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">{{nextPost.title}}</h4>
+                            <font-awesome-icon class=" arrow mt-auto px-5 mx-auto md:ml-0" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-right-long" />
+                        </router-link>
                     </div>
-
-                    <div v-if="nextPost" :key="nextPost._id" class="next" :class="{dark: darkPost === 'dark'}" >
-                    <router-link :to="{name: 'Post', params:{id: nextPost._id}}"  >
-                        <p class="uppercase text-gray-500 mb-4 px-5 dark:text-white dark:opacity-60"> Next</p>
-                        <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">{{nextPost.title}}</h4>
-                        <font-awesome-icon class=" arrow mt-auto px-5 mx-auto md:ml-0" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-right-long" />
-                    </router-link>
                 </div>
+                </article>
             </div>
-            </article>
+            <div class="card" v-if="!post">
+                <img v-if="darkPost!== 'dark'" src="../../assets/loading.gif" alt="loading"/>
+                <img v-if="darkPost === 'dark'" src="../../assets/loading_light.gif" alt="loading"/>
+                </div>
+        
         </div>
-        <div class="card" v-if="!post">
-              <img v-if="darkPost!== 'dark'" src="../../assets/loading.gif" alt="loading"/>
-              <img v-if="darkPost === 'dark'" src="../../assets/loading_light.gif" alt="loading"/>
-            </div>
+        </body>
         <div v-if="post">
             <Theme  />
         </div>
-    </div>
-    </body>
-    
+        
+</main>
     
     
 </template>
@@ -72,7 +75,7 @@ import jsHighlight from "highlight.js/lib/languages/javascript";
         var {post, error, load} = getPostId(id)
 
         load()
-        
+
         hljs.registerLanguage("javascript", jsHighlight)
         hljs.highlightAll()
 

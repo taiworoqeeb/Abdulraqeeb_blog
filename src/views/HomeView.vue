@@ -31,11 +31,11 @@
                 <img v-if="theme !== 'dark'" src="../assets/loading.gif" alt="loading"/>
                 <img v-if="theme === 'dark'" src="../assets/loading_light.gif" alt="loading"/>
               </div>
-              <div v-if="posts">
-                <Theme />
-              </div>
+             
     </body>
-     
+      <div v-if="posts">
+         <Theme />
+      </div>
   </main>
   
  

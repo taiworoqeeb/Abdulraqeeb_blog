@@ -1,8 +1,11 @@
 <template>
-    <div class="theme" :class="{ black: code === 'dark'}">
+    <footer> 
+     <div class="theme" :class="{ black: code === 'dark'}">
       <button @click="setDark" :disabled="darkTheme" ><font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /></button>
       <button @click="setLight" :disabled="lightTheme" ><font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /></button>
     </div>
+    </footer>
+  
 </template>
 
 <script setup>
