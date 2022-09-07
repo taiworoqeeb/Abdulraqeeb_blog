@@ -79,7 +79,7 @@ import {getPosts} from '../composite/Posts'
     padding-top: 70px;
     display: block;
     margin: 10px auto;
-    max-width: 70%;
+    max-width: 75%;
     margin-bottom: 80px;
   }
   .home ul{
