@@ -86,7 +86,7 @@ import Theme from '../components/theme.vue'
     border-top: none;
     padding: 20px;
     margin: 10px auto;
-    max-width: 100vh;
+    max-width: 100%;
   }
 
   .home li{
