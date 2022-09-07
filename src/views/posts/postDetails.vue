@@ -50,6 +50,8 @@ import innerPost from './innerPost.vue'
 import {ref} from 'vue'
 import router from '@/router'
 import Theme from '../../components/theme.vue'
+import hljs from "highlight.js"
+import jsHighlight from "highlight.js/lib/languages/javascript";
         const props = defineProps({
             id: String
         })
@@ -70,9 +72,26 @@ import Theme from '../../components/theme.vue'
         var {post, error, load} = getPostId(id)
 
         load()
+        
+        hljs.registerLanguage("javascript", jsHighlight)
+        hljs.highlightAll()
 
         function markDown(content){
-            return marked(content)
+            
+            return marked(content, {
+            renderer: new marked.Renderer(),
+            highlight: function(content) {
+                return hljs.highlightAuto(content).value;
+            },
+            langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+            pedantic: false,
+            gfm: true,
+            breaks: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false,
+            xhtml: false
+        })
         }
 
         if(localStorage.theme === 'dark'){

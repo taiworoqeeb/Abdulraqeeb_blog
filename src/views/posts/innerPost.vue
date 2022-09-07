@@ -37,6 +37,8 @@ defineExpose({
 </script>
 
 <style scoped>
+
+@import "~highlight.js/styles/monokai-sublime.css";
 .innerpage img.img{
     justify-content: center;
     width: 1200px;
@@ -52,5 +54,11 @@ defineExpose({
     max-width: 750px;
 }
 
+.article > p > img {
+  max-width: 90%;
+  max-height: 600px;
+  display: flex;
+  margin: auto;
+}
 
 </style>
