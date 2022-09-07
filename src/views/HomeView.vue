@@ -81,6 +81,7 @@ import Theme from '../components/theme.vue'
   .home{
     display: block;
     margin: 10px auto;
+    max-width: 100%;
   }
   .home ul{
     border-top: none;
