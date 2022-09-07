@@ -1,5 +1,5 @@
 <template>
-  <main class="w-full ">
+  <main class="w-full homelist">
     <body>
       <div v-if="posts" class="home md text-left divide-y divide-blue-200 dark:divide-blue-700 " :class="{dark: theme === 'dark'}">
           <div class="submit">
