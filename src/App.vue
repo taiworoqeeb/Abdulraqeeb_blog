@@ -1,6 +1,6 @@
 <template>
 <body>
-<header :class="{dark: state == true}">
+<header>
   <div class="logo" key="logo">
     <router-link v-if="state" to="/">
     <img src="./assets/logo.png" alt="logo">

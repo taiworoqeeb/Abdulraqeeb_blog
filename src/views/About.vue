@@ -78,7 +78,7 @@ section img.black {
     margin-top: 100px;
 }
 
-article{
+article p{
     margin: 20px;
     padding: 8px;
     margin-left: auto;
@@ -94,7 +94,7 @@ article{
     max-width: 900px;
 }
 
-article.black{
+article.black p{
     color: white
 }
 
