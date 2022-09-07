@@ -19,7 +19,8 @@
   <nav :class="{dark: state == true}">
   <div class="links" :class="{black: state == true}" key="links">
      <router-link to="/">Home</router-link>
-     <router-link :to="{name: 'about'}">About</router-link>
+     <router-link :to="{name: 'about'}">About</router-link>  
+     <a href="https://taiworoqeeb.tech">My-Portfolio</a>
   </div>
   </nav>
   <router-view v-slot="{Component, route}">
@@ -76,7 +77,7 @@ import {ref} from 'vue'
 
 nav{
   display: inline-block;
-  width: 10%;
+  width: 30%;
   margin-left: 70%;
   margin-right: auto;
 
