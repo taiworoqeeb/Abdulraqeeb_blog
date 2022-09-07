@@ -1,20 +1,21 @@
 <template>
-  <nav :class="{dark: state == true}">
+<header :class="{dark: state == true}">
   <div class="logo" key="logo">
-  <router-link v-if="state" to="/">
-  <img src="./assets/logo.png" alt="logo">
-  </router-link>
-   <router-link v-else to="/">
-  <img src="./assets/logo_light.png" alt="logo">
-  </router-link>
-  </div>
-  
-  <div class="mylogo" key="mylogo">
-   <router-link v-if="state" to="/"><img src="./assets/mylogo2.png" alt="mylogo"></router-link>
-  <router-link v-else to="/"><img src="./assets/mylogo.png" alt="mylogo"></router-link>
-      
-  </div>
-  
+    <router-link v-if="state" to="/">
+    <img src="./assets/logo.png" alt="logo">
+    </router-link>
+    <router-link v-else to="/">
+    <img src="./assets/logo_light.png" alt="logo">
+    </router-link>
+    </div>
+    
+    <div class="mylogo" key="mylogo">
+    <router-link v-if="state" to="/"><img src="./assets/mylogo2.png" alt="mylogo"></router-link>
+    <router-link v-else to="/"><img src="./assets/mylogo.png" alt="mylogo"></router-link>
+        
+    </div>
+</header>
+  <nav :class="{dark: state == true}">
   <div class="links" :class="{black: state == true}" key="links">
      <router-link to="/">Home</router-link>
      <router-link :to="{name: 'about'}">About</router-link>
@@ -63,8 +64,8 @@ import {ref} from 'vue'
 
 nav{
   display: inline-block;
-  width: 100%;
-  margin-left: auto;
+  width: 10%;
+  margin-left: 70%;
   margin-right: auto;
 
 }
@@ -75,7 +76,7 @@ nav .links {
 
 }
 
-nav .logo{
+header .logo{
   justify-content: left;
   width: 50px;
   height: 0px;
@@ -84,7 +85,7 @@ nav .logo{
   
 }
 
-nav .mylogo{
+header .mylogo{
   justify-content: center;
   width: 35vh;
   max-width: auto;

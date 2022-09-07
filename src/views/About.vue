@@ -1,13 +1,14 @@
 <template>
         <main class="w-full">
-            <header>
+        <body>
+        <section>
                 <img :class="{black: state == true}" src="../assets/myPics.jpg" alt="myPics">
                     <div class="mylinks" :class="{black: state == true}">
                         <a href="https://twitter.com/TaiwoRaqeeb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
                         <a href="https://linkedin.com/in/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
                         <a href="https://github.com/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-github" /></a>
                     </div>
-            </header >
+            </section >
             <article :class="{black: state == true}">
                 <p> I am <b>Abdulraqeeb Taiwo</b>, a fullstack developer. I work with JavaScript/TypeScript, i have more than 5 years of programming experience and 1+ Nodejs professional experience.
                 <ul>
@@ -31,6 +32,8 @@
         <div class="footer">
             <Theme />
         </div>
+        </body>
+            
     </main>
 </template>
 
@@ -54,10 +57,10 @@ import Theme from '../components/theme.vue'
 
 <style scoped>
 
-header img{
+section img{
     max-width: 200px;
     justify-content: center;
-    margin-top: 15%;
+    margin-top: 8%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 120px;
@@ -65,7 +68,7 @@ header img{
     border-color: #1B2737;
 }
 
-header img.black {
+section img.black {
     border-color: white;
 }
 

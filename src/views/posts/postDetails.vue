@@ -1,5 +1,6 @@
 <template>
-    <div class="post relative overflow-hidden">
+    <body>
+        <div class="post relative overflow-hidden">
         <div class="backButton" :class="{dark: darkPost === 'dark'}">
             <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>
         </div>
@@ -36,6 +37,8 @@
             <Theme  />
         </div>
     </div>
+    </body>
+    
     
     
 </template>
