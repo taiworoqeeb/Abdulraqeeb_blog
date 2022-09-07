@@ -13,14 +13,19 @@
     <div class="mylogo" key="mylogo">
     <router-link v-if="state" to="/"><img src="./assets/mylogo2.png" alt="mylogo"></router-link>
     <router-link v-else to="/"><img src="./assets/mylogo.png" alt="mylogo"></router-link>
-        
     </div>
+   
+    
 </header>
   <nav :class="{dark: state == true}">
+   
   <div class="links" :class="{black: state == true}" key="links">
+  <div class="theme-class">
+      <Theme />
+    </div>
      <router-link to="/">Home</router-link>
-     <router-link :to="{name: 'about'}">About</router-link>  
-     <a href="https://taiworoqeeb.tech">My-Portfolio</a>
+     <router-link :to="{name: 'about'}">About</router-link>
+    <a href="https://taiworoqeeb.tech">Portfolio</a>
   </div>
   </nav>
   <router-view v-slot="{Component, route}">
@@ -35,7 +40,8 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+import {ref} from 'vue';
+import Theme from '@/components/theme.vue'
 
 
     //  var viewMode = getCookie("view-mode");
@@ -76,16 +82,17 @@ import {ref} from 'vue'
 }
 
 nav{
-  display: inline-block;
-  width: 30%;
+  display: inline-flex;
+  width: 40%;
   margin-left: 70%;
   margin-right: auto;
 
 }
 nav .links {
-  padding: 15px;
+  padding: 10px;
   text-align: right;
   justify-content: right;
+  display: inline-flex;
 
 }
 
@@ -94,6 +101,7 @@ header .logo{
   width: 50px;
   height: 0px;
   margin: 5px;
+  cursor: pointer;
   
   
 }
@@ -107,22 +115,32 @@ header .mylogo{
   margin: 0px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
+nav .links .theme-class{
+  margin-right: 3%;
+  margin-top: 3%;
+  padding: 0px;
+  display: inline-flex;
+}
 
 nav .links a {
+  display: inline-flex;
   font-weight: bold;
   color: black;
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 nav .links.black a {
+  display: inline-flex;
   font-weight: bold;
   color: white;
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 4px;
 }
 

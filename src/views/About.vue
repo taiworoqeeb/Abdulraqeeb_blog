@@ -31,9 +31,6 @@
         
         
         </body>
-            <div class="footer">
-            <Theme />
-        </div>
     </main>
 </template>
 
@@ -144,6 +141,11 @@ ul li{
 
 .web:hover{
     color: blue;
+}
+
+main{
+    margin-bottom: 90px;
+    
 }
 
 </style>

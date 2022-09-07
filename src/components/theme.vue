@@ -1,8 +1,8 @@
 <template>
     <footer> 
      <div class="theme" :class="{ black: code === 'dark'}">
-      <button @click="setDark" :disabled="darkTheme" ><font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /></button>
-      <button @click="setLight" :disabled="lightTheme" ><font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /></button>
+      <button @click="setDark" v-if="!darkTheme" ><font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /></button>
+      <button @click="setLight" v-else ><font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /></button>
     </div>
     </footer>
   
@@ -82,27 +82,24 @@ import { ref } from 'vue'
 
 <style>
 .theme button{
-  color: #1B2737;
-  padding: 10px;
-  border: 2px solid #1B2737;
-  border-radius: 15px;
-  text-decoration: none;
-  margin: 2px;
+    font-size: larger;
+    color: #1B2737;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
 }
 
 .theme.black button{
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 15px;
     text-decoration: none;
-    margin: 2px;
 }
 
 .black{
     color: white;
 }
 
-button[disabled]{
-    opacity: 0.2;
+button:hover{
+   
 }
 </style>

@@ -33,9 +33,7 @@
               </div>
              
     </body>
-      <div v-if="posts">
-         <Theme />
-      </div>
+
   </main>
   
  
@@ -45,7 +43,6 @@
 import {ref, onMounted} from 'vue'
 import router from '@/router'
 import {getPosts} from '../composite/Posts'
-import Theme from '../components/theme.vue'
 
     const { posts, error, search, load, onSearch} = getPosts();
     
@@ -82,7 +79,8 @@ import Theme from '../components/theme.vue'
     padding-top: 70px;
     display: block;
     margin: 10px auto;
-    max-width: 100%;
+    max-width: 70%;
+    margin-bottom: 80px;
   }
   .home ul{
     border-top: none;

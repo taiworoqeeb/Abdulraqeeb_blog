@@ -37,9 +37,6 @@
         
         </div>
         </body>
-        <div v-if="post">
-            <Theme  />
-        </div>
         
 </main>
     
