@@ -5,7 +5,10 @@
             <br/>
         </header>
         <section class="innerpage">
-            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-12"> {{post.title}}</h1>
+            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{post.title}}</h1>
+            <div v-for="tag in post.tags" :key="tag" class="tag" :class="{dark: state == true}">
+                <span>#{{tag}}</span>
+            </div>
             <p class="text-xl dark:text-white font-bold mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
         </section>
             <article class="article prose dark:prose-dark text-justify max-w-xl" :class="{dark: state == true}" v-html="markDown(post.content)"/>
@@ -68,6 +71,23 @@ main {
     margin-right: 5px auto;
     
 }
+
+.tag{
+    display: inline-block;
+    margin: 0px 10px 10px 0;
+    padding: 2px 8px;
+    background: #eee;
+    border-radius: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #1B2737;
+  }
+
+.tag.dark{
+    background: #1B2737;
+    color: #eee;
+  }
 
 .article{
     margin: 10px;

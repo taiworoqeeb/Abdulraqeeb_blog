@@ -17,6 +17,9 @@
                           {{post.title}}
                         </router-link></h1>
                         <p class="prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
+                        <div v-for="tag in post.tags" :key="tag" class="tag">
+                          <span>#{{tag}}</span>
+                        </div>
                         <router-link :key="post._id" :to="{name: 'Post', params:{id: post._id}}" class="text-base font-medium leading-6">
                           <p class=" readmore text-gray-600 dark:text-white hover:text-gray-400 dark:hover:text-gray-400">Read more...</p>
                         </router-link>
@@ -40,9 +43,10 @@
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
+import {ref, onMounted, h} from 'vue'
 import router from '@/router'
 import {getPosts} from '../composite/Posts'
+import hljs from 'highlight.js';
 
     const { posts, error, search, load, onSearch} = getPosts();
     
@@ -56,6 +60,9 @@ import {getPosts} from '../composite/Posts'
     }else{
       theme.value = 'light'
     }
+
+    
+    
 
     defineExpose({
       posts, 
@@ -117,12 +124,30 @@ import {getPosts} from '../composite/Posts'
   }
   
   .home .info{
-    
-    margin: 8px;
+    margin: 2px;
     padding: 8px;
+    margin-left: 8px;
   }
   .home .info .title{
     color: #1B2737;
+  }
+
+  .home .info .tag{
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    padding: 6px 8px;
+    background: #eee;
+    border-radius: 20px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #1B2737;
+    
+  }
+
+  .home.dark .info .tag{
+    background: #1B2737;
+    color: #eee;
   }
   .submit input{
     display: flex;
