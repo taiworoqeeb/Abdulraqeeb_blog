@@ -1,4 +1,5 @@
 <template>
+    <navigation />
         <main class="w-full">
         <body>
         <section>
@@ -35,6 +36,7 @@
 </template>
 
 <script setup>
+import navigation from '@/components/navigation.vue';
 import { ref } from 'vue'
 import Theme from '../components/theme.vue'
         var state = ref(null)

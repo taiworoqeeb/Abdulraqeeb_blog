@@ -1,4 +1,5 @@
 <template>
+<navigation/>
 <main>
     <body>
             <div class="post relative overflow-hidden">
@@ -52,6 +53,7 @@ import router from '@/router'
 import Theme from '../../components/theme.vue'
 import hljs from "highlight.js"
 import jsHighlight from "highlight.js/lib/languages/javascript";
+import navigation from '@/components/navigation.vue';
         const props = defineProps({
             id: String
         })

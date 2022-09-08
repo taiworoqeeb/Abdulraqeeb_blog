@@ -1,4 +1,5 @@
 <template>
+  <navigation />
   <main class="w-full homelist">
     <body>
       <div v-if="posts" class="home md text-left divide-y divide-blue-200 dark:divide-blue-700 " :class="{dark: theme === 'dark'}">
@@ -47,6 +48,7 @@ import {ref, onMounted, h} from 'vue'
 import router from '@/router'
 import {getPosts} from '../composite/Posts'
 import hljs from 'highlight.js';
+import navigation from '@/components/navigation.vue';
 
     const { posts, error, search, load, onSearch} = getPosts();
     
