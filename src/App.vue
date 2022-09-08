@@ -120,10 +120,12 @@ header .mylogo{
 
 nav .links .theme-class{
   margin-right: 3%;
-  margin-top: 3%;
-  padding: 0px;
+  margin-top: 2%;
+  padding-right: 4px;
   display: inline-flex;
 }
+
+
 
 nav .links a {
   display: inline-flex;

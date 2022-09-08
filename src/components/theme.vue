@@ -1,8 +1,8 @@
 <template>
     <footer> 
      <div class="theme" :class="{ black: code === 'dark'}">
-      <button @click="setDark" v-if="!darkTheme" ><font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /></button>
-      <button @click="setLight" v-else ><font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /></button>
+      <button @click="setDark" v-if="!darkTheme" > <font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /> </button>
+      <button @click="setLight" v-else > <font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /> </button>
     </div>
     </footer>
   
@@ -88,6 +88,7 @@ import { ref } from 'vue'
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
 
 }
 
@@ -99,7 +100,4 @@ import { ref } from 'vue'
     color: white;
 }
 
-button:hover{
-   
-}
 </style>
