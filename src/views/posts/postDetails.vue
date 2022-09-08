@@ -177,6 +177,9 @@ import jsHighlight from "highlight.js/lib/languages/javascript";
  }
 
  .post{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 10px;
     margin: 100px auto;
     max-width: 100%;

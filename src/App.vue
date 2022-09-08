@@ -72,6 +72,9 @@ import Theme from '@/components/theme.vue'
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  justify-content: center;
+  max-width: 100%;
+  width: 100%;
   text-align: center;
   color: #2c3e50;
 }
@@ -83,7 +86,8 @@ import Theme from '@/components/theme.vue'
 
 nav{
   display: inline-flex;
-  width: 40%;
+  width: 30%;
+  max-width: 100%;
   margin-left: 70%;
   margin-right: auto;
 
