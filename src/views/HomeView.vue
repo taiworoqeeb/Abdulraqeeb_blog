@@ -16,8 +16,8 @@
                         <router-link :to="{name: 'Post', params:{id: post._id}}" class=" dark:text-white">
                           {{post.title}}
                         </router-link></h1>
-                        <p class="prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
-                        <div v-for="tag in post.tags" :key="tag" class="tag">
+                        <p class="desc prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
+                        <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag">
                           <span>#{{tag}}</span>
                         </div>
                         <router-link :key="post._id" :to="{name: 'Post', params:{id: post._id}}" class="text-base font-medium leading-6">
@@ -130,6 +130,9 @@ import hljs from 'highlight.js';
   }
   .home .info .title{
     color: #1B2737;
+  }
+  .home .info p.desc{
+    font-size:small;
   }
 
   .home .info .tag{

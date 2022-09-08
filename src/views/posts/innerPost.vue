@@ -6,7 +6,7 @@
         </header>
         <section class="innerpage">
             <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{post.title}}</h1>
-            <div v-for="tag in post.tags" :key="tag" class="tag" :class="{dark: state == true}">
+            <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag" :class="{dark: state == true}">
                 <span>#{{tag}}</span>
             </div>
             <p class="text-xl dark:text-white font-bold mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
