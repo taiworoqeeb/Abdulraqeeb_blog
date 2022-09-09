@@ -7,9 +7,7 @@
     </transition>
   </router-view>
 
-</body>
-
-  
+</body> 
 </template>
 
 <script setup>

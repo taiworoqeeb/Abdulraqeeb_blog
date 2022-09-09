@@ -19,7 +19,7 @@
                         </router-link></h1>
                         <p class="desc prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
                         <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag">
-                          <span>#{{tag}}</span>
+                          <span>#{{tag.toLowerCase()}}</span>
                         </div>
                         <router-link :key="post._id" :to="{name: 'Post', params:{id: post._id}}" class="text-base font-medium leading-6">
                           <p class=" readmore text-gray-600 dark:text-white hover:text-gray-400 dark:hover:text-gray-400">Read more...</p>
@@ -128,7 +128,7 @@ import navigation from '@/components/navigation.vue';
   .home .info{
     margin: 2px;
     padding: 8px;
-    margin-left: 8px;
+    margin-left: 10px;
   }
   .home .info .title{
     color: #1B2737;

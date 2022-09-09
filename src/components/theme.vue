@@ -1,10 +1,10 @@
 <template>
-    <footer> 
+    
      <div class="theme" :class="{ black: code === 'dark'}">
       <button @click="setDark" v-if="!darkTheme" > <font-awesome-icon icon="fa-solid fa-moon" :class="{black: code === 'dark'}" /> </button>
       <button @click="setLight" v-else > <font-awesome-icon icon="fa-solid fa-sun" :class="{black: code === 'dark'}" /> </button>
     </div>
-    </footer>
+    
   
 </template>
 
@@ -91,11 +91,9 @@ import { ref } from 'vue'
     position: relative;
 
 }
-
 .theme.black button{
     text-decoration: none;
 }
-
 .black{
     color: white;
 }

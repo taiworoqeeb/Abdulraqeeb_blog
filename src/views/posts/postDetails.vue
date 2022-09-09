@@ -75,7 +75,7 @@ import navigation from '@/components/navigation.vue';
 
         load()
 
-        hljs.registerLanguage("javascript", jsHighlight)
+        hljs.registerLanguage("javascript",jsHighlight)
         hljs.highlightAll()
 
         function markDown(content){

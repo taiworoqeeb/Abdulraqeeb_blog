@@ -13,27 +13,44 @@ import {
   faSun,
   faLongArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
-//  import { faMagnifyingGl } from '@fortawesome/free-regular-svg-icons'
-import {faTwitter, faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons'
 
-library.add(faTwitter, faGithub, faLinkedin, faMagnifyingGlass, faMoon, faSun,faLongArrowLeft,  faArrowRightLong, faArrowLeftLong, faUserSecret);
+//  import { faMagnifyingGl } from '@fortawesome/free-regular-svg-icons'
+import {
+  faTwitter,
+  faGithub,
+  faLinkedin
+} from "@fortawesome/free-brands-svg-icons";
+
+import { createPinia } from "pinia";
+
+library.add(
+  faTwitter,
+  faGithub,
+  faLinkedin,
+  faMagnifyingGlass,
+  faMoon,
+  faSun,
+  faLongArrowLeft,
+  faArrowRightLong,
+  faArrowLeftLong,
+  faUserSecret
+);
 
 createApp(App)
+  .use(createPinia())
   .component("font-awesome-icon", FontAwesomeIcon)
   .use(router)
   .mount("#app");
 
-  const appTheme = localStorage.getItem('theme');
+const appTheme = localStorage.getItem("theme");
 
-  // Check what is the active theme and change theme when user clicks on the theme button in header.
-  if (
-    appTheme === 'dark' &&
-    (document.documentElement.classList.contains('dark') ||
-    document.getElementById('app'))
-  ) {
-    document.documentElement.classList.add('bg-primary-dark');
-  } else {
-    document.documentElement.classList.add('bg-secondary-light');
-  }
-
- 
+// Check what is the active theme and change theme when user clicks on the theme button in header.
+if (
+  appTheme === "dark" &&
+  (document.documentElement.classList.contains("dark") ||
+    document.getElementById("app"))
+) {
+  document.documentElement.classList.add("bg-primary-dark");
+} else {
+  document.documentElement.classList.add("bg-secondary-light");
+}
