@@ -16,6 +16,7 @@
 		</div>
 
 		<h3>Menu</h3>
+		<hr/>
 		<div class="menu">
 			<router-link to="/admin/dashboard" class="button">
 				<span class="material-icons">home</span>
@@ -33,16 +34,20 @@
 				<span class="material-icons">email</span>
 				<span class="text">Contact</span>
 			</router-link>
-		</div>
-
-		<div class="flex"></div>
-		
-		<div class="menu">
 			<router-link to="/settings" class="button">
 				<span class="material-icons">settings</span>
 				<span class="text">Settings</span>
 			</router-link>
 		</div>
+
+		<div class="flex"></div>
+		
+		<!-- <div class="menu">
+			<router-link to="/settings" class="button">
+				<span class="material-icons">settings</span>
+				<span class="text">Settings</span>
+			</router-link>
+		</div> -->
 	</aside>
 </template>
 
@@ -77,12 +82,13 @@ aside {
 			width: 2rem;
 		}
 	}
-    .mylogo{
+	.mylogo{
         margin-bottom: 1rem;
         img{
-            display: inline-flex;
+            display: block;
             width: 9rem;
             justify-content: center;
+			margin-left: 50px;
         }
     }
 	.menu-toggle-wrap {
@@ -175,6 +181,7 @@ aside {
 				margin-right: 1rem;
 			}
 		}
+		
 		.footer {
 			opacity: 0;
 		}
