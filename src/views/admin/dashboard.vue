@@ -21,6 +21,7 @@ import siderbar from '@/components/siderbar.vue';
 	--light: #f1f5f9;
 	--sidebar-width: 300px;
 }
+
 * {
 	margin: 0;
 	padding: 0;

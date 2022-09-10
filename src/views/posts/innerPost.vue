@@ -1,5 +1,5 @@
 <template>
-    <main class="w-full ">
+    <main v-if="post" class="shortPost w-full ">
         <header>
             <img class="img" :src="post.image_url">
             <br/>
@@ -11,21 +11,38 @@
             </div>
             <p class="text-xl dark:text-white font-bold mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
         </section>
-            <article class="article prose dark:prose-dark text-justify max-w-xl" :class="{dark: state == true}" v-html="markDown(post.content)"/>
+            <article  class="article text-justify" :class="{dark: state == true}" >
+                <MdEditor 
+                v-model="content" 
+                preview-only 
+                language="en-US"
+                :theme="`${state ? 'dark' : 'light'}`"
+                preview-theme="default"
+                code-theme="atom"
+                
+                 />
+            </article>
     </main>
 </template>
 
 <script setup>
+import MdEditor from 'md-editor-v3';
 import { ref } from 'vue';
 
+MdEditor.config({
+    markedOptions:{
+        breaks: true
+    }
+});
+
 const props = defineProps({
-    post: Object,
-    markDown: Function
+    post: Object
 })
 
 const post = ref(props.post);
 const markDown = ref(props.markDown)
 const state = ref('')
+const content = ref(props.post.content)
 
 const appTheme = localStorage.getItem('theme');
     if(appTheme ==='dark'){
@@ -43,10 +60,9 @@ defineExpose({
 
 </script>
 
-<style scoped>
-
-@import "~highlight.js/styles/monokai-sublime.css";
-header img.img{
+<style>
+@import 'md-editor-v3/lib/style.css';
+main.shortPost header img.img{
     display: flex;
     justify-content: center;
     width: 750px ;
@@ -56,23 +72,24 @@ header img.img{
     
 }
 
-main {
+main.shortPost {
     display: inline-block;
     min-width: 780px;
-    max-width: 810px;
+    max-width: 840px;
     margin-left: 15px auto;
     margin-right: 15px auto;
-    width: 750px
+    width: 800px;
+    justify-content: center;
 }
-.innerpage p{
-    max-width: 810px;
+main.shortPost .innerpage p{
+    max-width: 815px;
     margin: 10px;
     margin-left: 5px auto;
     margin-right: 5px auto;
     
 }
 
-.tag{
+main.shortPost .tag{
     display: inline-block;
     margin: 0px 10px 10px 0;
     padding: 2px 8px;
@@ -84,23 +101,25 @@ main {
     color: #1B2737;
   }
 
-.tag.dark{
+main.shortPost .tag.dark{
     background: #1B2737;
     color: #eee;
   }
 
-.article{
+main.shortPost .article{
     margin: 10px;
     margin-left: 5px auto;
     margin-right: 5px auto;
-    max-width: 810px;
+    max-width: 810px; 
 }
 
-.article > p > img {
-  max-width: 90%;
-  max-height: 600px;
-  display: flex;
-  margin: auto;
+main.shortPost .md-dark{
+    --tw-bg-opacity: 1;
+    --md-bk-color: rgb(13 36 56 / var(--tw-bg-opacity)) !important;
 }
 
+main.shortPost .md-preview.default-theme {
+    text-align: justify;
+    word-break: keep-all;
+}
 </style>

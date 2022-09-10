@@ -1,8 +1,7 @@
 <template>
   <navigation />
   <main class="w-full homelist">
-    <body>
-      <div v-if="posts" class="home md text-left divide-y divide-blue-200 dark:divide-blue-700 " :class="{dark: theme === 'dark'}">
+      <div v-if="posts" class="home text-left divide-y divide-blue-200 dark:divide-blue-700 " :class="{dark: theme === 'dark'}">
           <div class="submit">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
             <input class="light" :class="{dark: theme === 'dark'}" type="text" v-model="search" placeholder="&#xF002; Search" style="font-family: Arial, 'Font Awesome 5 Free'"/>
@@ -35,19 +34,15 @@
                 <img v-if="theme !== 'dark'" src="../assets/loading.gif" alt="loading"/>
                 <img v-if="theme === 'dark'" src="../assets/loading_light.gif" alt="loading"/>
               </div>
-             
-    </body>
-
   </main>
   
  
 </template>
 
 <script setup>
-import {ref, onMounted, h} from 'vue'
+import {ref} from 'vue'
 import router from '@/router'
-import {getPosts} from '../composite/Posts'
-import hljs from 'highlight.js';
+import {getPosts} from '@/composite/Posts'
 import navigation from '@/components/navigation.vue';
 
     const { posts, error, search, load, onSearch} = getPosts();

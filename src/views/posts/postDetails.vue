@@ -9,7 +9,7 @@
 
             <div class="view flex flex-col mb-20 items-center max-w-4xl w-full mx-auto">
                 <article v-if="post" :key="post._id" >
-                    <innerPost :post="post" :markDown="markDown" />
+                    <innerPost :post="post" />
                     <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
                         <div v-if="previousPost" :key="previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
                         <router-link :to="{name: 'Post', params:{id: previousPost._id}}"  >
@@ -46,13 +46,13 @@
 
 <script setup>
 import {getPostId, getNextPost, getPreviousPost} from '../../composite/Posts'
-import {marked} from 'marked'
+// import {marked} from 'marked'
 import innerPost from './innerPost.vue'
 import {ref} from 'vue'
 import router from '@/router'
 import Theme from '../../components/theme.vue'
-import hljs from "highlight.js"
-import jsHighlight from "highlight.js/lib/languages/javascript";
+// import hljs from "highlight.js"
+// import jsHighlight from "highlight.js/lib/languages/javascript";
 import navigation from '@/components/navigation.vue';
         const props = defineProps({
             id: String
@@ -75,26 +75,26 @@ import navigation from '@/components/navigation.vue';
 
         load()
 
-        hljs.registerLanguage("javascript",jsHighlight)
-        hljs.highlightAll()
+        // hljs.registerLanguage("javascript",jsHighlight)
+        // hljs.highlightAll()
 
-        function markDown(content){
+        // function markDown(content){
             
-            return marked(content, {
-            renderer: new marked.Renderer(),
-            highlight: function(content) {
-                return hljs.highlightAuto(content).value;
-            },
-            langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
-            pedantic: false,
-            gfm: true,
-            breaks: false,
-            sanitize: false,
-            smartLists: true,
-            smartypants: false,
-            xhtml: false
-        })
-        }
+        //     return marked(content, {
+        //     renderer: new marked.Renderer(),
+        //     highlight: function(content) {
+        //         return hljs.highlightAuto(content).value;
+        //     },
+        //     langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+        //     pedantic: false,
+        //     gfm: true,
+        //     breaks: false,
+        //     sanitize: false,
+        //     smartLists: true,
+        //     smartypants: false,
+        //     xhtml: false
+        // })
+        // }
 
          const appTheme = localStorage.getItem('theme');
         if(appTheme === 'dark'){
@@ -110,7 +110,6 @@ import navigation from '@/components/navigation.vue';
         defineExpose({
             post,
             error,
-            markDown,
             nextPost,
             previousPost,
             darkPost,
