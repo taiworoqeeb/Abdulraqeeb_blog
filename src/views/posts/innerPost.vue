@@ -13,12 +13,13 @@
         </section>
             <article  class="article text-justify" :class="{dark: state == true}" >
                 <MdEditor 
-                v-model="content" 
+                :model-value="content"
                 preview-only 
                 language="en-US"
                 :theme="`${state ? 'dark' : 'light'}`"
                 preview-theme="default"
                 code-theme="atom"
+                :show-code-row-number="true"
                 
                  />
             </article>

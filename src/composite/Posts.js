@@ -105,4 +105,22 @@ export const getPreviousPost = async(id) =>{
     
 }
 
-
+export const onUploadImg = async (files, callback) => {
+    const res = await Promise.all(
+      files.map((file) => {
+        return new Promise((rev, rej) => {
+          const form = new FormData();
+          form.append('image', file);
+  
+          fetch(`${URL}/uploadImage`, {
+                method: 'POST',
+                body: form
+            })
+            .then((res) => rev(res.json()))
+            .catch((error) => rej(error));
+        });
+      })
+    );
+  
+    callback(res.map((item) => item.url));
+  };

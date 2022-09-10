@@ -28,8 +28,12 @@ import siderbar from '@/components/siderbar.vue';
 	box-sizing: border-box;
 	font-family: 'Fira sans', sans-serif;
 }
-.dashboard body {
+.dashboard{
 	background: var(--light);
+}
+.dashboard body {
+	background: #fff;
+	border-radius: 400px;
 }
 .dashboard button {
 	cursor: pointer;

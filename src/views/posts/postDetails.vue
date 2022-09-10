@@ -7,7 +7,7 @@
                 <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>
             </div>
 
-            <div class="view flex flex-col mb-20 items-center max-w-4xl w-full mx-auto">
+            <div class="view flex flex-col mb-20 items-center w-full mx-auto">
                 <article v-if="post" :key="post._id" >
                     <innerPost :post="post" />
                     <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
@@ -185,4 +185,5 @@ import navigation from '@/components/navigation.vue';
     margin: 100px auto;
     max-width: 100%;
  }
+
 </style>
