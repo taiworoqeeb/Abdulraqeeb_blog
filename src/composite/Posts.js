@@ -4,7 +4,7 @@ import {ref} from 'vue';
 var API = process.env.API ? decodeURI(process.env.API)
 : 'https://blogapi-v1.herokuapp.com';
 
-var URL = `${API}/api/blog`;
+export var URL = `${API}/api/blog`;
 
 var Posts = async()=>{
     var res = await fetch(`${URL}/getAllPosts`)
@@ -123,4 +123,10 @@ export const onUploadImg = async (files, callback) => {
     );
   
     callback(res.map((item) => item.url));
-  };
+};
+
+export const deletePost = async(id)=>{
+    const deleteUrl = `${URL}/deletePost/${id}`
+
+    const res = await fetch
+}

@@ -65,3 +65,35 @@ export const useCreatePostStore = defineStore('createpost', {
     }
   }
 })
+
+export const usedeletePost = defineStore('deletePost', {
+  state: () =>({
+    id: '',
+    message: null,
+    status: null,
+    error: null
+  }),
+
+  actions:{
+    async deletePost(){
+      const deleteUrl = `${URL}/deletePost/${this.id}`
+      try {
+            const res = await fetch(deleteUrl, {
+            method: 'DELETE'
+          })
+          const data = await res.json()
+          if(data.status === true){
+            this.status = true
+            this.message = data.message;
+            this.id = '';
+            this.error = null;
+          }else{
+            this.status = false
+            this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    }
+  }
+})

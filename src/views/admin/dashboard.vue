@@ -22,19 +22,11 @@ import siderbar from '@/components/siderbar.vue';
 	--sidebar-width: 300px;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Fira sans', sans-serif;
-}
+
 .dashboard{
 	background: var(--light);
 }
-.dashboard body {
-	background: #fff;
-	border-radius: 400px;
-}
+
 .dashboard button {
 	cursor: pointer;
 	appearance: none;
@@ -48,7 +40,7 @@ import siderbar from '@/components/siderbar.vue';
 		flex: 1 1 0;
 		padding: 2rem;
 		@media (max-width: 1024px) {
-			padding-left: 6rem;
+			padding-left: 4rem;
 		}
 	}
 }

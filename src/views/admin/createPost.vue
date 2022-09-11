@@ -352,7 +352,11 @@ MdEditor.config({
 
 <style scoped>
 
-
+.createPost{
+  margin: 25px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 .createPost .markdown {
     text-align: left;
     display: block;
@@ -362,11 +366,14 @@ MdEditor.config({
 
 .createPost form{
     max-width: 100%;
-    margin: 30px auto;
+    margin: 20px auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
     background: white;
     text-align: left;
-    padding: 40px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 50px;
 }
 
 .createPost form .markdown{
@@ -388,11 +395,17 @@ MdEditor.config({
     align-items: center;
     display: block;
     padding: 10px 6px;
-    width: 90%;
+    width: 98%;
     box-sizing: border-box;
     border: none;
+    border-radius: 20px;
     border-bottom: 1px solid #ddd;
     color: #555;
+    text-indent: 10px;
+}
+
+.createPost input::placeholder{
+  text-indent: 10px;
 }
 .createPost .pill{
     display: inline-block;

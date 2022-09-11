@@ -1,16 +1,16 @@
 <template>
     <navigation />
         <main class="w-full">
-        <body>
-        <section>
+        <body :class="{dark: state == true}">
+        <section :class="{dark: state == true}">
                 <img :class="{black: state == true}" src="../assets/myPics.jpg" alt="myPics">
                     <div class="mylinks" :class="{black: state == true}">
-                        <a href="https://twitter.com/TaiwoRaqeeb"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
-                        <a href="https://linkedin.com/in/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
-                        <a href="https://github.com/taiworoqeeb"><font-awesome-icon icon="fa-brands fa-github" /></a>
+                        <a href="https://twitter.com/TaiwoRaqeeb" target="_blank" rel="noreferrer noopener"><font-awesome-icon icon="fa-brands fa-twitter" /></a>
+                        <a href="https://linkedin.com/in/taiworoqeeb" target="_blank" rel="noreferrer noopener"><font-awesome-icon icon="fa-brands fa-linkedin" /></a>
+                        <a href="https://github.com/taiworoqeeb" target="_blank" rel="noreferrer noopener"><font-awesome-icon icon="fa-brands fa-github" /></a>
                     </div>
             </section >
-            <article :class="{black: state == true}">
+            <article :class="{dark: state == true}" >
                 <p> I am <b>Abdulraqeeb Taiwo</b>, a fullstack developer. I work with JavaScript/TypeScript, i have more than 5 years of programming experience and 1+ Nodejs professional experience.
                 <ul>
                     <h1>My stack are: </h1>
@@ -26,7 +26,7 @@
                     <li>VueJs (Vue3)</li>
                 </ul>
                 <br/>
-                For more information about me, you can vist my portfolio website <a class="web" :class="{black: state == true}" href="https://taiworoqeeb.tech"> Here </a>
+                For more information about me, you can vist my portfolio website <a class="web" :class="{black: state == true}" href="https://taiworoqeeb.tech" target="_blank" rel="noreferrer noopener"> Here </a>
                  </p>
             </article>
         
@@ -57,7 +57,6 @@ import Theme from '../components/theme.vue'
 </script>
 
 <style scoped>
-
 section img{
     max-width: 200px;
     justify-content: center;
@@ -95,7 +94,7 @@ article p{
     max-width: 900px;
 }
 
-article.black p{
+article.dark p{
     color: white
 }
 

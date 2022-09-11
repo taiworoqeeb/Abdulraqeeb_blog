@@ -24,7 +24,7 @@
     </div>
      <router-link to="/">Home</router-link>
      <router-link :to="{name: 'about'}">About</router-link>
-    <a href="https://taiworoqeeb.tech">Portfolio</a>
+    <a href="https://taiworoqeeb.tech" target="_blank" rel="noreferrer noopener">Portfolio</a>
   </div>
   </nav>
 

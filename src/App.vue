@@ -22,6 +22,23 @@
   color: #2c3e50;
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Fira sans', sans-serif;
+}
+
+body {
+    background: var(--light);
+
+  }
+
+body.dark {
+  --tw-bg-opacity: 1;
+    background-color: rgb(13 36 56 / var(--tw-bg-opacity));
+}
+
 .dark{
   --tw-bg-opacity: 1;
     background-color: rgb(13 36 56 / var(--tw-bg-opacity));

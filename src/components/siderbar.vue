@@ -21,16 +21,16 @@
 				<span class="text">Home</span>
 			</router-link>
 			<router-link to="/admin/dashboard/createPost" class="button">
-				<span class="material-icons">description</span>
+				<span class="material-icons">post_add</span>
 				<span class="text">Create Post</span>
 			</router-link>
-			<router-link to="/admin/dashboard/draft" class="button">
-				<span class="material-icons">group</span>
-				<span class="text">Drafts</span>
+			<router-link to="/admin/dashboard/posts" class="button">
+				<span class="material-icons">article</span>
+				<span class="text">Posts</span>
 			</router-link>
-			<router-link to="/contact" class="button">
-				<span class="material-icons">email</span>
-				<span class="text">Contact</span>
+			<router-link to="/admin/dashboard/draft" class="button">
+				<span class="material-icons"> drafts </span>
+				<span class="text">Drafts</span>
 			</router-link>
 			<router-link to="/settings" class="button">
 				<span class="material-icons">settings</span>
@@ -68,7 +68,7 @@ aside {
 	color: var(--light);
 	width: calc(2rem + 32px);
 	overflow: hidden;
-	min-height: 100vh;
+	min-height: 113vh;
 	padding: 1rem;
 	transition: 0.2s ease-in-out;
 	.flex {

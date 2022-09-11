@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import postDetails from '../views/posts/postDetails.vue'
 import About from '../views/About.vue'
 import Dashboard from '@/views/admin/dashboard.vue'
+import NotFound from '@/views/notfound.vue'
 const routes = [
   {
     path: '/',
@@ -42,10 +43,20 @@ const routes = [
         component: () => import('@/views/admin/drafts.vue')
       },
       {
+        path: 'posts',
+        name: "Posts",
+        component: () => import('@/views/admin/listPosts.vue')
+      },
+      {
         path: '/admin/dashboard', redirect: '/admin/dashboard/home'
       }
     ]
   },
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: NotFound
+  }
  
  
 ]
