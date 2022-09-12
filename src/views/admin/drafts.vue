@@ -19,6 +19,7 @@
                         <th> S/N </th>
                         <th> Post Title</th>
                         <th> Post Description</th>
+                        <th> Created At</th>
                         <th> Action </th>
                     </tr>
                 </thead>
@@ -27,6 +28,7 @@
                         <td class="sn"><div style="width: 5px">{{index+1}}</div> </td>
                         <td><div style="width: 200px">{{post.title}}</div> </td>
                         <td><div style="width: 400px">{{post.desc}}</div></td>
+                        <td><div style="width: 150px">{{format_date(post.createdAt)}}</div></td>
                         <td class="action">
                             <router-link :to="{name: 'EditPost', params: {id: post._id}}">
                                 <span class="material-icons">edit_note</span>
@@ -51,6 +53,7 @@
 </template>
 
 <script setup>
+import moment from 'moment'
 import mylogo from '@/assets/mylogo.png'
 import {getDraftPosts} from '@/composite/Posts'
 import { ref, onMounted } from 'vue';
@@ -66,6 +69,13 @@ onMounted(() =>{
 const {posts, search, onSearch, load} = getDraftPosts()
 
 load()
+
+    const format_date = (value) => {
+        if (value) {
+            const date = new Date(value);
+            return new Intl.DateTimeFormat('default', {dateStyle: 'long'}).format(date);
+    }
+      }
 
 const deleteStore = usedeletePost()
 

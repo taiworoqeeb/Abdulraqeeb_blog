@@ -23,6 +23,7 @@
     "marked": "^4.1.0",
     "md-editor-v3": "^2.2.1",
     "mermaid": "^9.1.6",
+    "moment": "^2.29.4",
     "pinia": "^2.0.21",
     "pinia-plugin-persistedstate": "^2.2.0",
     "prettier": "^2.7.1",
