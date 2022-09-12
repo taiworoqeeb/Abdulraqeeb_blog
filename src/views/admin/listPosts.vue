@@ -28,7 +28,7 @@
                         <td class="sn"><div style="width: 1px">{{index+1}}</div> </td>
                         <td><div style="width: 200px">{{post.title}}</div> </td>
                         <td><div style="width: 400px">{{post.desc}}</div></td>
-                        <td><div style="width: 150px">{{format_date(post.createdAt)}}</div></td>
+                        <td><div style="width: 170px">{{format_date(post.createdAt)}}</div></td>
                         <td class="action">
                             <router-link :to="{name: 'EditPost', params: {id: post._id}}">
                                 <span class="material-icons">edit_note</span>
