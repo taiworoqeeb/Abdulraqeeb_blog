@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-import moment from 'moment'
+import dayjs from 'dayjs'
 import mylogo from '@/assets/mylogo.png'
 import {getDraftPosts} from '@/composite/Posts'
 import { ref, onMounted } from 'vue';
@@ -72,10 +72,10 @@ load()
 
     const format_date = (value) => {
         if (value) {
-            const date = new Date(value);
-            return new Intl.DateTimeFormat('default', {dateStyle: 'long'}).format(date);
+            const date = dayjs(value);
+            return date.format('dddd MMMM D, YYYY');
+        }
     }
-      }
 
 const deleteStore = usedeletePost()
 
