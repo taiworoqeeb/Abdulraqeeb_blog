@@ -433,9 +433,15 @@ MdEditor.config({
 <style scoped>
 
 .editPost{
-  margin: 25px;
+  margin: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
+  margin-left: 60px;
+}
+
+.editPost body{
+    width: 100%;
+    margin-left: 0px;
 }
 .editPost .markdown {
     text-align: left;
@@ -446,7 +452,7 @@ MdEditor.config({
 
 .editPost form{
     max-width: 120vh;
-    width: auto;
+    width: 100%;
     margin: 20px auto;
     margin-left: 20px;
     justify-content: center;
