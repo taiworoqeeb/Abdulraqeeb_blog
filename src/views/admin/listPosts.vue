@@ -16,9 +16,9 @@
                 </thead>
                 <tbody>
                     <tr v-if="posts" v-for="(post, index) in onSearch()" :key="post._id">       
-                        <td class="sn">{{index+1}}</td>
-                        <td>{{post.title}}</td>
-                        <td>{{post.desc}}</td>
+                        <td class="sn"><div style="width: 1px">{{index+1}}</div> </td>
+                        <td><div style="width: 200px">{{post.title}}</div> </td>
+                        <td><div style="width: 400px">{{post.desc}}</div></td>
                         <td class="action">
                             <router-link :to="{name: 'EditPost', params: {id: post._id}}">
                                 <span class="material-icons">edit_note</span>
@@ -107,13 +107,14 @@ body{
     margin-top: 120px;
 }
 .table{
-    display: flex;
+    display: inline-flex;
     background: #fff;
     width: auto;
-    max-width: 100vh;
+    max-width: 120vh;
     border-radius: 20px;
     margin: 10px auto;
     justify-content: center;
+    
 }
 
 .table table thead th{
@@ -122,7 +123,8 @@ body{
     font-size: 14px;
     font-weight:300;
     color: #00273d;
-  
+    margin-left: 50%;
+    justify-content: space-between;
 }
 
 .table table tbody tr{
@@ -130,12 +132,15 @@ body{
 }
 
 .table table tbody td{
+    justify-content: space-between;
+    align-items: stretch;
     padding: 16px 25px;
     font-size: 12px;
     color: #888;
     font-weight: 300;
     border-left: 1px solid #ddd;
     text-align: left;
+    margin: auto;
 }
 .table table tbody td.sn{
     border: none;
