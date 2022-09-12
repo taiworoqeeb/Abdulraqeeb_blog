@@ -170,7 +170,7 @@ body{
 .table table tbody td{
     justify-content: space-between;
     align-items: stretch;
-    padding: 16px 20px;
+    padding: 16px 16px;
     font-size: 12px;
     color: #888;
     font-weight: 300;
