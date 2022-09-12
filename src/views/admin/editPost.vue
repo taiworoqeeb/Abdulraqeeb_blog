@@ -85,7 +85,7 @@ import { ref, onMounted } from 'vue';
 import sanitizeHtml from 'sanitize-html';
 import {onUploadImg} from '@/composite/Posts'
 import screenfull from 'screenfull';
-
+import router from '@/router';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
 
@@ -236,8 +236,12 @@ MdEditor.config({
     
     
     onMounted(() =>{
-        Post.id = id
+        Post.getById(id)
     })
+
+     function back(){
+            router.go(-1)
+        }
 
     if(Post.oldImage === "" || Post.oldImage === null || !Post.oldImage){
             Post.oldImage = ImageIcon

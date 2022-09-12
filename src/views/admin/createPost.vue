@@ -356,6 +356,7 @@ MdEditor.config({
   margin: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
+  margin-left: 70px;
 }
 .createPost .markdown {
     text-align: left;

@@ -1,5 +1,5 @@
 <template>
-	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
+	<aside class="sidebar" :class="`${is_expanded ? 'is-expanded' : ''}`">
 		<div class="logo">
 			<img :src="logoURL" alt="Vue" /> 
         </div>
@@ -61,7 +61,7 @@ const ToggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
-aside {
+aside.sidebar {
 	display: flex;
 	flex-direction: column;
 	background-color: var(--dark);

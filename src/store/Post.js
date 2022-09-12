@@ -84,7 +84,12 @@ export const useEditPostStore = defineStore('editpost', {
     }),
 
   getters: {
-    async getById(){
+    
+  },
+
+  actions: {
+    async getById(id){
+      this.id = id
       try {
         const res = await fetch(`${URL}/getPost/${this.id}`, {
           method: 'GET',
@@ -109,10 +114,7 @@ export const useEditPostStore = defineStore('editpost', {
       } catch (error) {
         this.error = error
       }
-    }
-  },
-
-  actions: {
+    },
     async UpdatePost() {
       this.message = null;
       this.status = null;
