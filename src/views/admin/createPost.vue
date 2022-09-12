@@ -365,7 +365,8 @@ MdEditor.config({
 }
 
 .createPost form{
-    max-width: 100%;
+    max-width: 120vh;
+    width: auto;
     margin: 20px auto;
     justify-content: center;
     align-items: center;

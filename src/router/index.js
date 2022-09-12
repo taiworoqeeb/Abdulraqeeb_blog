@@ -49,6 +49,12 @@ const routes = [
       },
       {
         path: '/admin/dashboard', redirect: '/admin/dashboard/home'
+      },
+      {
+        path: 'editpost/:id',
+        name: "EditPost",
+        component: () =>import('@/views/admin/editPost.vue'),
+        props: true
       }
     ]
   },

@@ -125,8 +125,37 @@ export const onUploadImg = async (files, callback) => {
     callback(res.map((item) => item.url));
 };
 
-export const deletePost = async(id)=>{
-    const deleteUrl = `${URL}/deletePost/${id}`
+export const getDraftPosts = () =>{
+    var error = ref(null);
+    var posts = ref(null);
+    var search = ref('');
 
-    const res = await fetch
+    try {
+        var load = async()=>{
+            const res = await fetch(`${URL}/getDraftPosts`)
+             const data = await res.json()
+
+             if(data.status === true){
+                posts.value = data.data
+             }else if(data.status === false){
+                throw Error(`${data.message}`)
+             }
+        }
+
+        var onSearch = () => {
+            if(posts.value && search.value){
+                    return posts.value.filter((post) => post.title.toLowerCase().includes(search.value.toLowerCase()))
+            }else{
+                    return posts.value
+                }
+            }
+            
+    } catch (err) {
+        error.value = err.message
+    }
+
+    return{
+        posts, error, search, load, onSearch
+    }
 }
+

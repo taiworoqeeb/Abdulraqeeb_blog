@@ -14,7 +14,7 @@ import {
   faLongArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 
-//  import { faMagnifyingGl } from '@fortawesome/free-regular-svg-icons'
+ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import {
   faTwitter,
   faGithub,
@@ -35,7 +35,8 @@ library.add(
   faLongArrowLeft,
   faArrowRightLong,
   faArrowLeftLong,
-  faUserSecret
+  faUserSecret,
+  faPenToSquare
 );
 
 createApp(App)

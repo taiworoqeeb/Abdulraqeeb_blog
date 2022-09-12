@@ -1,7 +1,7 @@
 <template>
 <navigation/>
 <main>
-    <body>
+    <body :class="{dark: darkPost === 'dark'}">
             <div class="post relative overflow-hidden" :class="{dark: darkPost === 'dark'}">
             <div class="backButton" :class="{dark: darkPost === 'dark'}">
                 <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>

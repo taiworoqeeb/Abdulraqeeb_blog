@@ -20,7 +20,7 @@
                         <td>{{post.title}}</td>
                         <td>{{post.desc}}</td>
                         <td class="action">
-                            <router-link to="/">
+                            <router-link :to="{name: 'EditPost', params: {id: post._id}}">
                                 <span class="material-icons">edit_note</span>
                             </router-link>
                             <button @click="deletePost(post._id)">
@@ -104,12 +104,13 @@ const deletePost = (id)=>{
 
 body{
     margin-left: 50px;
+    margin-top: 120px;
 }
 .table{
     display: flex;
     background: #fff;
-    width: 100%;
-    max-width: 100%;
+    width: auto;
+    max-width: 100vh;
     border-radius: 20px;
     margin: 10px auto;
     justify-content: center;
