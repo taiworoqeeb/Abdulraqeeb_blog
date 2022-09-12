@@ -451,10 +451,9 @@ MdEditor.config({
 }
 
 .editPost form{
-    max-width: 120vh;
+    max-width: 150vh;
     width: 100%;
     margin: 20px auto;
-    margin-left: 20px;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
