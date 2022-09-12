@@ -6,6 +6,7 @@
         </div>
         </header>
         <body>
+            <div v-if="posts">
              <div class="submit">
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
                     <input type="text" v-model="search" placeholder="&#xF002; Search" style="font-family: Arial, 'Font Awesome 5 Free'"/>
@@ -39,6 +40,10 @@
                 </tbody>
                 
                 </table>
+            </div>
+            </div>
+            <div class="card" v-else>
+                <img  src="@/assets/loading.gif" alt="loading"/>
             </div>
         </body>
     </main>
@@ -115,6 +120,13 @@ const deletePost = (id)=>{
 </script>
 
 <style scoped>
+
+ .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+  }
 
 body{
     margin-left: 50px;

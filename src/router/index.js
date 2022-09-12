@@ -4,6 +4,8 @@ import postDetails from '../views/posts/postDetails.vue'
 import About from '../views/About.vue'
 import Dashboard from '@/views/admin/dashboard.vue'
 import NotFound from '@/views/notfound.vue'
+import CreatePost from '@/views/admin/createPost.vue'
+import EditPost from '@/views/admin/editPost.vue'
 const routes = [
   {
     path: '/',
@@ -40,7 +42,7 @@ const routes = [
           {
         path: 'createPost',
         name: "CreatePost",
-        component: () => import('@/views/admin/createPost.vue')
+        component: CreatePost
       },
       {
         path: 'draft',
@@ -58,7 +60,7 @@ const routes = [
       {
         path: 'editpost/:id',
         name: "EditPost",
-        component: () =>import('@/views/admin/editPost.vue'),
+        component: EditPost,
         props: true
       }
     ]
