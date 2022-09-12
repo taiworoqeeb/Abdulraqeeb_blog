@@ -1,5 +1,5 @@
 <template>
-    <main v-if="post" class="shortPost w-full ">
+    <main v-if="post" class="shortPost w-full " :class="{dark: state == true}">
         <header>
             <img class="img" :src="post.image_url">
             <br/>
@@ -117,6 +117,15 @@ main.shortPost .article{
 main.shortPost .md-dark{
     --tw-bg-opacity: 1;
     --md-bk-color: rgb(13 36 56 / var(--tw-bg-opacity)) !important;
+}
+
+main.shortPost .default-theme{
+    background: var(--light);
+}
+
+main.shortPost.dark .default-theme{
+    --tw-bg-opacity: 1;
+    background: rgb(13 36 56 / var(--tw-bg-opacity)) !important;
 }
 
 main.shortPost .md-preview.default-theme {

@@ -353,10 +353,15 @@ MdEditor.config({
 <style scoped>
 
 .createPost{
-  margin: 25px;
+  margin: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
-  margin-left: 70px;
+  margin-left: 60px;
+}
+
+.createPost body{
+    width: 100%;
+    margin-left: 0px;
 }
 .createPost .markdown {
     text-align: left;
@@ -366,8 +371,8 @@ MdEditor.config({
 }
 
 .createPost form{
-    max-width: 120vh;
-    width: auto;
+    max-width: 150vh;
+    width: 100%;
     margin: 20px auto;
     justify-content: center;
     align-items: center;
