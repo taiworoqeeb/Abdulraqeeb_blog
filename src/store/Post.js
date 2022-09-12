@@ -120,16 +120,21 @@ export const useEditPostStore = defineStore('editpost', {
       this.status = null;
       this.error = null;
          try {
-          var form = new FormData();
-          form.append('title', this.title);
-          form.append('desc', this.desc);
-          form.append('tags', this.tags);
-          form.append('content', this.content);
-          form.append('draft', this.draft)
+          var body = {
+            title: this.title,
+            desc: this.desc,
+            tags: this.tags,
+            content: this.content,
+            draft: this.draft
+          }
           
           const res = await fetch(`${URL}/updatePost/${this.id}`, {
             method: 'PUT',
-            body: form
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
           });
             const data = await res.json();
             if(data.status === true){

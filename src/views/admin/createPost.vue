@@ -17,7 +17,7 @@
                 <input type="text" placeholder="Post Description" v-model="Post.desc" required>
 
                 <label for="tags"> Tags: </label>
-                <input type="text" placeholder="Post Tags" v-model="tag" @keyup="addTags">
+                <input type="text" placeholder="Post Tags" v-model="Post.tag" @keyup="addTags">
                 <div v-for="tagged in Post.tags" :key="tagged" class="pill">
                   <span @click="deleteTag(tagged)">{{tagged}}</span>
                 </div>
@@ -210,7 +210,7 @@ MdEditor.config({
 
     const Post = useCreatePostStore()
 
-    var tag = ref('');
+    
     var ImageError = ref('')
     
     // const submitFn = () =>{
@@ -222,11 +222,11 @@ MdEditor.config({
     
 
     const addTags = (e) =>{
-      if(e.key === "," && tag.value){
-        if(!Post.tags.includes(tag.value.slice(0, -1)) && Post.tags.length <= 4){
-          Post.tags.push(tag.value.slice(0, -1).toLowerCase());
+      if(e.key === "," && Post.tag){
+        if(!Post.tags.includes(Post.tag.slice(0, -1)) && Post.tags.length <= 4){
+          Post.tags.push(Post.tag.slice(0, -1).toLowerCase());
         }
-      tag.value = '';
+      Post.tag = '';
       }
     }
 
