@@ -22,7 +22,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { createPinia } from "pinia";
-
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 
 library.add(
@@ -39,8 +39,11 @@ library.add(
   faPenToSquare
 );
 
+const pinia = createPinia()
+pinia.use(piniaPluginPersistedstate)
+
 createApp(App)
-  .use(createPinia())
+  .use(pinia)
   .component("font-awesome-icon", FontAwesomeIcon)
   .use(router)
   .mount("#app");

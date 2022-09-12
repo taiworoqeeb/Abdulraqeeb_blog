@@ -64,7 +64,9 @@ export const useCreatePostStore = defineStore('createpost', {
       }
       
     }
-  }
+  },
+
+  persist: true
 })
 
 export const useEditPostStore = defineStore('editpost', {
