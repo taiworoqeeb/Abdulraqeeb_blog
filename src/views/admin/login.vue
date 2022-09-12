@@ -103,7 +103,7 @@ const User = useUserStore()
 body{
     align-items: center;
     justify-content: center;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 
 form{
