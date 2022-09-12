@@ -23,6 +23,11 @@ const routes = [
     props: true
   },
   {
+    path: '/admin/login',
+    name: 'AdminLogin',
+    component: ()=> import('@/views/admin/login.vue')
+  },
+  {
     path: '/admin/dashboard',
     name: 'AdminDashboard',
     component: Dashboard,

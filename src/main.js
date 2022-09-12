@@ -48,6 +48,13 @@ createApp(App)
 const appTheme = localStorage.getItem("theme");
 
 // Check what is the active theme and change theme when user clicks on the theme button in header.
+if(localStorage.Token && localStorage.User){
+  window.setTimeout(()=>{
+    localStorage.removeItem('Token');
+    localStorage.removeItem('User')
+  }, 60000*24*60)
+}
+
 if (
   appTheme === "dark" &&
   (document.documentElement.classList.contains("dark") ||

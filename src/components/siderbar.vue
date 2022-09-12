@@ -36,6 +36,10 @@
 				<span class="material-icons">settings</span>
 				<span class="text">Settings</span>
 			</router-link>
+			<button @click="logout" class="button">
+				<span class="material-icons">logout</span>
+				<span class="text">Log Out</span>
+			</button>
 		</div>
 
 		<div class="flex"></div>
@@ -53,10 +57,17 @@
 import { ref } from 'vue'
 import logoURL from '@/assets/logo.png'
 import logo2 from '@/assets/mylogo2.png'
+import router from '@/router';
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 const ToggleMenu = () => {
 	is_expanded.value = !is_expanded.value
 	localStorage.setItem("is_expanded", is_expanded.value)
+}
+
+const logout =()=>{
+	localStorage.removeItem('Token')
+	localStorage.removeItem('User')
+	router.push('/admin/login')
 }
 </script>
 

@@ -1,7 +1,9 @@
 <template>  
     <main class="editPost">
         <header>
-             <h1>Edit Post</h1>
+         <div class="mylogo">
+                <img :src="mylogo" alt="mylogo">
+        </div>
         </header>
         <body>
             <div class="backButton">
@@ -77,6 +79,7 @@
 </template>
 
 <script setup>
+import mylogo from '@/assets/mylogo.png'
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 import MdEditor from 'md-editor-v3';
@@ -233,9 +236,12 @@ MdEditor.config({
     const Post = useEditPostStore()
 
     
-    
+  
     
     onMounted(() =>{
+        if(!localStorage.Token && !localStorage.User){
+         router.push('/admin/login')
+        }
         Post.getById(id)
     })
 

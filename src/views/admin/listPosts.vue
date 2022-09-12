@@ -1,10 +1,17 @@
 <template>
     <main>
         <header>
-            <h1> Posts</h1>
+         <div class="mylogo">
+                <img :src="mylogo" alt="mylogo">
+        </div>
         </header>
         <body>
+             <div class="submit">
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
+                    <input type="text" v-model="search" placeholder="&#xF002; Search" style="font-family: Arial, 'Font Awesome 5 Free'"/>
+                </div>
             <div class="table" >
+                 
                 <table>
                 <thead>
                     <tr>
@@ -38,11 +45,18 @@
 </template>
 
 <script setup>
+import mylogo from '@/assets/mylogo.png'
 import {getPosts} from '@/composite/Posts'
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import router from '@/router';
 import {usedeletePost} from '@/store/Post'
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+    onMounted(() =>{
+        if(!localStorage.Token && !localStorage.User){
+            router.push('/admin/login')
+        }
+    })
 const {posts, search, onSearch, load} = getPosts()
 
 load()
@@ -111,6 +125,7 @@ body{
     background: #fff;
     width: auto;
     max-width: 120vh;
+    border: 2px solid #ddd;
     border-radius: 20px;
     margin: 10px auto;
     justify-content: center;
@@ -155,6 +170,35 @@ body{
 .action .material-icons{
     font-size: x-large;
 }
+.submit input{
+    display: flex;
+    padding: 10px 6px;
+    width: 25%;
+    margin-left: 70%;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    border: none;
+    --tw-bg-opacity: 1;
+    border-bottom: 1px solid rgb(13 36 56 / var(--tw-bg-opacity));
+    color: rgb(13 36 56 / var(--tw-bg-opacity));
+    border-radius: 50px;
+    text-indent: 20px;
+
+  }
+   .submit input.dark{
+    --tw-bg-opacity: 1;
+    background-color: rgb(13 36 56 / var(--tw-bg-opacity));
+    border-bottom: 1px solid white;
+  }
+  .submit input::placeholder{
+    color: #1B2737;
+    opacity: 1;
+  }
+
+  .submit input.dark::placeholder{
+    color: white;
+    opacity: 1;
+  }
 
 
 </style>

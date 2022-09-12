@@ -1,7 +1,9 @@
 <template>  
     <main class="createPost">
         <header>
-             <h1>Create Post</h1>
+         <div class="mylogo">
+                <img :src="mylogo" alt="mylogo">
+         </div>
         </header>
         <body>
             
@@ -61,11 +63,12 @@
 </template>
 
 <script setup>
+import mylogo from '@/assets/mylogo.png'
 import Swal from 'sweetalert2'
 import 'sweetalert2/src/sweetalert2.scss'
 import MdEditor from 'md-editor-v3';
 import 'md-editor-v3/lib/style.css';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import sanitizeHtml from 'sanitize-html';
 import {onUploadImg} from '@/composite/Posts'
 import screenfull from 'screenfull';
@@ -84,7 +87,7 @@ import 'highlight.js/styles/tokyo-night-dark.css';
 import prettier from 'prettier';
 import parserMarkdown from 'prettier/parser-markdown';
 import {useCreatePostStore} from '@/store/Post';
-
+import router from '@/router'
 
 MdEditor.config({
 
@@ -208,6 +211,11 @@ MdEditor.config({
   }
 });
 
+    onMounted(() =>{
+    if(!localStorage.Token && !localStorage.User){
+        router.push('/admin/login')
+    }
+})
     const Post = useCreatePostStore()
 
     

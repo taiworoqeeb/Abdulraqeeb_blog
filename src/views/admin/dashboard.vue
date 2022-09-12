@@ -1,4 +1,6 @@
 <template>
+	
+
     <div class="dashboard">
         <siderbar/>
 
@@ -9,6 +11,13 @@
 
 <script setup>
 import siderbar from '@/components/siderbar.vue';
+import {onMounted} from 'vue'
+import router from '@/router'
+onMounted(() =>{
+    if(!localStorage.Token && !localStorage.User){
+        router.push('/admin/login')
+    }
+})
 </script>
 
 <style lang="scss">
