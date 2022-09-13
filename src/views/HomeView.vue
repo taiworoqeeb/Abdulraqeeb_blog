@@ -12,18 +12,22 @@
                         <img :src="post.image_url" alt="postImage">
                       </router-link>
                       <div class="info">
-                        <h1 class=" title text-2xl font-bold leading-8 tracking-tight">
+                        <h1 class=" title text-xl font-bold leading-8 tracking-tight">
                         <router-link :to="{name: 'Post', params:{id: post._id}}" class=" dark:text-white">
                           {{post.title}}
                         </router-link></h1>
-                        <p class="desc prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
+                        <hr class="titleLine">
                         <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag">
                           <span>#{{tag.toLowerCase()}}</span>
                         </div>
+                        <p class="date">{{format_date(post.createdAt)}}</p>
+                        <p class="desc prose max-w-none text-gray-500 dark:text-gray-400">{{post.desc}}</p>
                         <router-link :key="post._id" :to="{name: 'Post', params:{id: post._id}}" class="text-base font-medium leading-6">
                           <p class=" readmore text-gray-600 dark:text-white hover:text-gray-400 dark:hover:text-gray-400">Read more...</p>
                         </router-link>
+                         
                       </div>
+                     
                   
                   </li> 
             </ul>
@@ -40,6 +44,7 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs'
 import {ref} from 'vue'
 import router from '@/router'
 import {getPosts} from '@/composite/Posts'
@@ -48,6 +53,13 @@ import navigation from '@/components/navigation.vue';
     const { posts, error, search, load, onSearch} = getPosts();
     
     load()
+
+  const format_date = (value) => {
+        if (value) {
+            const date = dayjs(value);
+            return date.format('MMM D, YYYY');
+        }
+    }
 
     var theme = ref(null)
      const appTheme = localStorage.getItem('theme');
@@ -94,25 +106,46 @@ import navigation from '@/components/navigation.vue';
   }
 
   .home li{
-    border-top: 1px solid #1B2737;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    margin: 10px auto;
+    margin: 5px auto;
     padding: 20px;
     display: flex;
+  }
+
+  .home li:hover{
+    background: #ddd;
+  }
+
+  .home.dark li:hover{
+    background: var(--dark-alt);
   }
 
   .home.dark li{
     border-top: 1px solid white;
   }
   .home li img{
-    display: inline;
+    margin-top: 9%;
+    display: inline-flex;
     justify-content: center;
-    max-width: 500px;
+    max-width: 200px;
     height: 150px;
     border-radius: 10px;
     border-width: 3px;
     border-color: #1B2737;
     
+  }
+
+  .home li .date{
+    font-size: smaller;
+    font-weight: bold;
+  }
+
+  .home.dark li .date{
+   color: #fff;
+  }
+  .home li .titleLine{
+      margin: 4px;
   }
 
   .home.dark li img{
@@ -130,6 +163,11 @@ import navigation from '@/components/navigation.vue';
   }
   .home .info p.desc{
     font-size:small;
+  }
+
+  .home .info .readmore{
+    font-size: small;
+    font-style: italic;
   }
 
   .home .info .tag{
@@ -164,9 +202,18 @@ import navigation from '@/components/navigation.vue';
     text-indent: 20px;
 
   }
+
+  .submit input:hover{
+    background: #ddd;
+  }
+
+  .submit input.dark:hover{
+    background: var(--dark-alt);
+  }
    .submit input.dark{
     --tw-bg-opacity: 1;
     background-color: rgb(13 36 56 / var(--tw-bg-opacity));
+    color: #fff;
     border-bottom: 1px solid white;
   }
   .submit input::placeholder{
@@ -175,7 +222,7 @@ import navigation from '@/components/navigation.vue';
   }
 
   .submit input.dark::placeholder{
-    color: white;
+    color: gray;
     opacity: 1;
   }
 

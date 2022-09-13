@@ -6,10 +6,14 @@
         </header>
         <section class="innerpage">
             <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{post.title}}</h1>
+            
             <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag" :class="{dark: state == true}">
                 <span>#{{tag.toLowerCase()}}</span>
             </div>
-            <p class="text-xl dark:text-white font-bold mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
+            <hr>
+            <p class="date">Date: {{format_date(post.createdAt)}}</p>
+            <hr>
+            <p class=" desc text-xl dark:text-white mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
         </section>
             <article  class="article text-justify" :class="{dark: state == true}" >
                 <MdEditor 
@@ -27,6 +31,7 @@
 </template>
 
 <script setup>
+import dayjs from 'dayjs'
 import MdEditor from 'md-editor-v3';
 import { ref } from 'vue';
 
@@ -36,6 +41,12 @@ MdEditor.config({
     }
 });
 
+const format_date = (value) => {
+    if (value) {
+        const date = dayjs(value);
+        return date.format('dddd MMMM D, YYYY');
+    }
+}
 const props = defineProps({
     post: Object
 })
@@ -106,7 +117,26 @@ main.shortPost .tag.dark{
     background: #1B2737;
     color: #eee;
   }
+main.shortPost.dark .date{
+    color: white;
+    margin: 14px;
+}
 
+main.shortPost.dark hr{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+}
+
+main.shortPost.dark .desc{
+    margin-top: 25px;
+}
+
+main.shortPost .desc{
+    margin-top: 25px;
+    font-size: large;
+    font-weight: 500;
+}
 main.shortPost .article{
     margin: 10px;
     margin-left: 5px auto;
