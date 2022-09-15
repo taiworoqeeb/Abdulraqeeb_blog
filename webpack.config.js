@@ -14,6 +14,9 @@ module.exports = {
       }
     ]
   },
+  resolve:{
+    extensions: ['.vue', '.ts', '.js']
+  },
   plugins: [
     new MiniCssExtractPlugin({ filename: "[name].[hash].css" })
   ],

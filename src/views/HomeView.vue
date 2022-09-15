@@ -27,12 +27,10 @@
                         </router-link>
                          
                       </div>
-                     
-                  
                   </li> 
-            </ul>
-                
-                </div>
+            </ul> 
+           
+          </div>
 
               <div class="card" v-else>
                 <img v-if="theme !== 'dark'" src="../assets/loading.gif" alt="loading"/>
@@ -55,10 +53,10 @@ import navigation from '@/components/navigation.vue';
     load()
 
   const format_date = (value) => {
-        if (value) {
-            const date = dayjs(value);
-            return date.format('MMM D, YYYY');
-        }
+      if (value) {
+          const date = dayjs(value);
+          return date.format('MMM D, YYYY');
+      }
     }
 
     var theme = ref(null)
@@ -84,6 +82,55 @@ import navigation from '@/components/navigation.vue';
 </script>
 
 <style scoped>
+
+  .example-six .pagination-container {
+  column-gap: 10px;
+  align-items: center;
+  }
+  .example-six .paginate-buttons {
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: transparent;
+    border: none;
+    color: black;
+  }
+
+  .example-six .back-button,
+  .example-six .next-button {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    height: 45px;
+    width: 45px;
+  }
+  .example-six .active-page {
+    background-color: #e5e5e5;
+  }
+  .example-six .paginate-buttons:hover {
+    background-color: #f5f5f5;
+  }
+  .example-six .active-page:hover {
+    background-color: #e5e5e5;
+  }
+
+  .example-six .back-button svg {
+    transform: rotate(180deg) translateY(-2px);
+  }
+  .example-six .next-button svg {
+    transform: translateY(2px);
+  }
+
+  .example-six .back-button:hover,
+  .example-six .next-button:hover {
+    background-color: rgb(45, 45, 45);
+  }
+
+  .example-six .back-button:active,
+  .example-six .next-button:active {
+    background-color: rgb(85, 85, 85);
+  }
 
   .card{
     display: flex;

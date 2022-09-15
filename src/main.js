@@ -23,7 +23,10 @@ import {
 
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import VueAwesomePaginate from "vue-awesome-paginate";
 
+// import the necessary css file
+import "vue-awesome-paginate/dist/style.css";
 
 library.add(
   faTwitter,
@@ -42,13 +45,19 @@ library.add(
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
-createApp(App)
+const app = createApp(App);
+
+app.component("font-awesome-icon", FontAwesomeIcon)
   .use(pinia)
-  .component("font-awesome-icon", FontAwesomeIcon)
+  .use("vue-awesome-paginate", VueAwesomePaginate)
   .use(router)
   .mount("#app");
 
 const appTheme = localStorage.getItem("theme");
+
+if(!appTheme || appTheme === null || appTheme === undefined){
+  localStorage.setItem("theme", "light")
+}
 
 // Check what is the active theme and change theme when user clicks on the theme button in header.
 if(localStorage.Token && localStorage.User){
