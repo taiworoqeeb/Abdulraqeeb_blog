@@ -325,5 +325,6 @@ export const useGetPostStore = defineStore('getPost', {
         this.error = error.message
       }
     }
-  }
+  },
+  persist: true
 })
