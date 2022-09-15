@@ -23,7 +23,7 @@ import {
 
 import { createPinia } from "pinia";
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import VueAwesomePaginate from "vue-awesome-paginate";
+// import VueAwesomePaginate from "vue-awesome-paginate";
 
 // import the necessary css file
 import "vue-awesome-paginate/dist/style.css";
@@ -49,7 +49,6 @@ const app = createApp(App);
 
 app.component("font-awesome-icon", FontAwesomeIcon)
   .use(pinia)
-  .use("vue-awesome-paginate", VueAwesomePaginate)
   .use(router)
   .mount("#app");
 

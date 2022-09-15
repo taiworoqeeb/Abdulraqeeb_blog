@@ -1,23 +1,23 @@
 <template>
-    <main v-if="post" class="shortPost w-full " :class="{dark: state == true}">
+    <main v-if="Posts.post" class="shortPost w-full " :class="{dark: state == true}">
         <header>
-            <img class="img" :src="post.image_url">
+            <img class="img" :src="Posts.post.image_url">
             <br/>
         </header>
         <section class="innerpage">
-            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{post.title}}</h1>
+            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{Posts.post.title}}</h1>
             
-            <div v-if="post.tags" v-for="tag in post.tags" :key="tag" class="tag" :class="{dark: state == true}">
+            <div v-if="Posts.post.tags" v-for="tag in Posts.post.tags" :key="tag" class="tag" :class="{dark: state == true}">
                 <span>#{{tag.toLowerCase()}}</span>
             </div>
             <hr>
-            <p class="date">Date: {{format_date(post.createdAt)}}</p>
+            <p class="date">Date: {{format_date(Posts.post.createdAt)}}</p>
             <hr>
-            <p class=" desc text-xl dark:text-white mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{post.desc}}</p>
+            <p class=" desc text-xl dark:text-white mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{Posts.post.desc}}</p>
         </section>
             <article  class="article text-justify" :class="{dark: state == true}" >
                 <MdEditor 
-                :model-value="content"
+                :model-value="Posts.post.content"
                 preview-only 
                 language="en-US"
                 :theme="`${state ? 'dark' : 'light'}`"
@@ -34,6 +34,9 @@
 import dayjs from 'dayjs'
 import MdEditor from 'md-editor-v3';
 import { ref } from 'vue';
+import {useGetPostStore} from '@/store/Post'
+
+const Posts = useGetPostStore()
 
 MdEditor.config({
     markedOptions:{
@@ -47,14 +50,14 @@ const format_date = (value) => {
         return date.format('dddd MMMM D, YYYY');
     }
 }
-const props = defineProps({
-    post: Object
-})
+// const props = defineProps({
+//     post: Object
+// })
 
-const post = ref(props.post);
-const markDown = ref(props.markDown)
+// const post = ref(props.post);
+// const markDown = ref(props.markDown)
 const state = ref('')
-const content = ref(props.post.content)
+// const content = ref(props.post.content)
 
 const appTheme = localStorage.getItem('theme');
     if(appTheme ==='dark'){
@@ -64,11 +67,11 @@ const appTheme = localStorage.getItem('theme');
     }
     
 
-defineExpose({
-    post,
-    markDown,
-    state
-})
+// defineExpose({
+//     post,
+//     markDown,
+//     state
+// })
 
 </script>
 
@@ -122,7 +125,7 @@ main.shortPost.dark .date{
     margin: 14px;
 }
 
-main.shortPost.dark hr{
+main.shortPost hr{
     margin-bottom: 15px;
     margin-top: 15px;
     

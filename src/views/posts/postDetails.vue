@@ -8,34 +8,33 @@
             </div>
 
             <div class="view flex flex-col mb-20 items-center w-full mx-auto">
-                <article v-if="post" :key="post._id" >
-                    <innerPost :post="post" />
+                <article v-if="Posts.post" :key="Posts.post._id" >
+                    <innerPost />
                     <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
-                        <div v-if="previousPost" :key="previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
-                        <router-link :to="{name: 'Post', params:{id: previousPost._id}}"  >
+                        <div v-if="Posts.previousPost" :key="Posts.previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
+                        <router-link :to="{name: 'Post', params:{id: Posts.previousPost._id}}"  >
                             <p class="uppercase text-gray-500 px-5 mb-4 dark:text-white dark:opacity-60"> Previous </p>
                             <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">
-                            {{previousPost.title}}
+                            {{Posts.previousPost.title}}
                             </h4>
                             <font-awesome-icon class=" arrow mx-auto px-5 md:mr-0 mt-auto" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-left-long" />
                         </router-link>
                         </div>
 
-                        <div v-if="nextPost" :key="nextPost._id" class="next" :class="{dark: darkPost === 'dark'}" >
-                        <router-link :to="{name: 'Post', params:{id: nextPost._id}}"  >
+                        <div v-if="Posts.nextPost" :key="Posts.nextPost._id" class="next" :class="{dark: darkPost === 'dark'}" >
+                        <router-link :to="{name: 'Post', params:{id: Posts.nextPost._id}}"  >
                             <p class="uppercase text-gray-500 mb-4 px-5 dark:text-white dark:opacity-60"> Next</p>
-                            <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">{{nextPost.title}}</h4>
+                            <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">{{Posts.nextPost.title}}</h4>
                             <font-awesome-icon class=" arrow mt-auto px-5 mx-auto md:ml-0" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-right-long" />
                         </router-link>
                     </div>
                 </div>
                 </article>
             </div>
-            <div class="card" v-if="!post">
+            <div class="card" v-if="!Posts.post">
                 <img v-if="darkPost!== 'dark'" src="../../assets/loading.gif" alt="loading"/>
                 <img v-if="darkPost === 'dark'" src="../../assets/loading_light.gif" alt="loading"/>
-                </div>
-        
+            </div>
         </div>
         </body>
         
@@ -48,53 +47,39 @@
 import {getPostId, getNextPost, getPreviousPost} from '../../composite/Posts'
 // import {marked} from 'marked'
 import innerPost from './innerPost.vue'
-import {ref} from 'vue'
+import {ref, onMounted} from 'vue'
 import router from '@/router'
-import Theme from '../../components/theme.vue'
-// import hljs from "highlight.js"
-// import jsHighlight from "highlight.js/lib/languages/javascript";
 import navigation from '@/components/navigation.vue';
+import {useGetPostStore} from '@/store/Post'
+
+var Posts = useGetPostStore()
+
         const props = defineProps({
             id: String
         })
 
         var id = props.id
+
+        onMounted(()=>{
+            Posts.id = id
+            Posts.getPostById()
+            Posts.getContPost()
+        })
         
-        var nextPost = ref(null)
-        var previousPost= ref(null)
+        // var nextPost = ref(null)
+        // var previousPost= ref(null)
         var darkPost = ref('')
 
-        const altPost = async()=>{
-            nextPost.value = await getNextPost(id);
-            previousPost.value = await getPreviousPost(id);
-
-        }
-        altPost()
-
-        var {post, error, load} = getPostId(id)
-
-        load()
-
-        // hljs.registerLanguage("javascript",jsHighlight)
-        // hljs.highlightAll()
-
-        // function markDown(content){
-            
-        //     return marked(content, {
-        //     renderer: new marked.Renderer(),
-        //     highlight: function(content) {
-        //         return hljs.highlightAuto(content).value;
-        //     },
-        //     langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
-        //     pedantic: false,
-        //     gfm: true,
-        //     breaks: false,
-        //     sanitize: false,
-        //     smartLists: true,
-        //     smartypants: false,
-        //     xhtml: false
-        // })
+        // const altPost = async()=>{
+        //     nextPost.value = await getNextPost(id);
+        //     previousPost.value = await getPreviousPost(id);
         // }
+        // altPost()
+
+        // var {post, error, load} = getPostId(id)
+
+        // load()
+
 
          const appTheme = localStorage.getItem('theme');
         if(appTheme === 'dark'){
@@ -108,10 +93,10 @@ import navigation from '@/components/navigation.vue';
         }
         
         defineExpose({
-            post,
-            error,
-            nextPost,
-            previousPost,
+            // post,
+            // error,
+            // nextPost,
+            // previousPost,
             darkPost,
             back
         })
@@ -141,7 +126,7 @@ import navigation from '@/components/navigation.vue';
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 46%;
+    margin: 25%;
   }
  .previous{
     color: #333;
