@@ -253,7 +253,7 @@ export const useGetPostStore = defineStore('getPost', {
   }),
 
   getters:{
-    async getPosts(state){
+    getPosts: async(state) => {
       state.message = null
       state.error = null
       try {
@@ -270,7 +270,7 @@ export const useGetPostStore = defineStore('getPost', {
         state.error = error.message
       }
     },
-    searchState(state){
+    searchState: (state) =>{
       if(state.posts && state.search && state.search !== "" && state.search !== null){
         state.searchedPost = state.posts.filter((post) => post.title.toLowerCase().includes(state.search.toLowerCase()))
      }else{
