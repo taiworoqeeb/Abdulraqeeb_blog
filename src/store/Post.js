@@ -253,23 +253,6 @@ export const useGetPostStore = defineStore('getPost', {
   }),
 
   getters:{
-    getPosts: async(state) => {
-      state.message = null
-      state.error = null
-      try {
-        const res = await fetch(`${URL}/getAllPosts`)
-        const data = await res.json()
-
-        if(data.status === true){
-          state.posts = data.data
-       }else if(data.status === false){
-          state.message = data.message
-       }
-
-      } catch (error) {
-        state.error = error.message
-      }
-    },
     searchState: (state) =>{
       if(state.posts && state.search && state.search !== "" && state.search !== null){
         state.searchedPost = state.posts.filter((post) => post.title.toLowerCase().includes(state.search.toLowerCase()))
@@ -280,7 +263,23 @@ export const useGetPostStore = defineStore('getPost', {
   },
 
   actions: {
-    
+    async getPosts(){
+      this.message = null
+      this.error = null
+      try {
+        const res = await fetch(`${URL}/getAllPosts`)
+        const data = await res.json()
+
+        if(data.status === true){
+          this.posts = data.data
+       }else if(data.status === false){
+          this.message = data.message
+       }
+
+      } catch (error) {
+        this.error = error.message
+      }
+    },
     async getPostById(){
       this.error = null;
       this.post = null;

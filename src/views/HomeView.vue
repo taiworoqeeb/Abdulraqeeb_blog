@@ -54,8 +54,10 @@ const Posts = useGetPostStore()
     // const { posts, error, search, load, onSearch} = getPosts();
     
     // load()
-
-  Posts.getPosts
+    
+    onMounted(() =>{
+      Posts.getPosts()
+    })
 
   const format_date = (value) => {
       if (value) {
