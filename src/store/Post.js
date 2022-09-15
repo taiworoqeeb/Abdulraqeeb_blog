@@ -249,15 +249,14 @@ export const useGetPostStore = defineStore('getPost', {
     previousPost: null,
     search: null,
     posts: null,
-    searchedPost: null
   }),
 
   getters:{
     searchState: (state) =>{
       if(state.posts && state.search && state.search !== "" && state.search !== null){
-        state.searchedPost = state.posts.filter((post) => post.title.toLowerCase().includes(state.search.toLowerCase()))
+        return state.posts.filter((post) => post.title.toLowerCase().includes(state.search.toLowerCase()))
      }else{
-        state.searchedPost = state.posts
+        return state.posts
      }
     }
   },

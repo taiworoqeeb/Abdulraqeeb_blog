@@ -7,7 +7,7 @@
             <input class="light" :class="{dark: theme === 'dark'}" type="text" v-model="Posts.search" placeholder="&#xF002; Search" style="font-family: Arial, 'Font Awesome 5 Free'"/>
           </div>
             <ul class="homelist">
-              <li v-for="post in Posts.searchedPost" :key="post._id" class="w-flil ">
+              <li v-for="post in Posts.searchState" :key="post._id" class="w-flil ">
                     <router-link :to="{name: 'Post', params:{id: post._id}}" class="text-blue-900 dark:text-white">
                         <img :src="post.image_url" alt="postImage">
                       </router-link>
