@@ -55,6 +55,8 @@ const Posts = useGetPostStore()
     
     // load()
 
+  Posts.getPosts
+
   const format_date = (value) => {
       if (value) {
           const date = dayjs(value);
