@@ -4,7 +4,7 @@
       <div v-if="Posts.posts" class="home text-left divide-y divide-blue-200 dark:divide-blue-700 " :class="{dark: theme === 'dark'}">
           <div class="submit">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css">
-            <input class="light" :class="{dark: theme === 'dark'}" type="text" v-model="Posts.search" placeholder="&#xF002; Search" style="font-family: Arial, 'Font Awesome 5 Free'"/>
+            <input class="light" :class="{dark: theme === 'dark'}" type="text" v-model="Posts.search" placeholder="&#xF002; Search article" style="font-family: Arial, 'Font Awesome 5 Free'"/>
           </div>
             <ul class="homelist">
               <li v-for="post in Posts.searchState" :key="post._id" class="w-flil ">
