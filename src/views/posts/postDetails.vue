@@ -27,8 +27,10 @@
                             <h4 class="text-sm  text-gray-700 mb-1 px-5 dark:text-white">{{Posts.nextPost.title}}</h4>
                             <font-awesome-icon class=" arrow mt-auto px-5 mx-auto md:ml-0" :class="{dark: darkPost === 'dark'}" icon="fa-solid fa-arrow-right-long" />
                         </router-link>
+                        </div>
+                   
                     </div>
-                </div>
+                 <comment />
                 </article>
             </div>
             <div class="card" v-if="!Posts.post">
@@ -51,6 +53,7 @@ import {ref, onMounted} from 'vue'
 import router from '@/router'
 import navigation from '@/components/navigation.vue';
 import {useGetPostStore} from '@/store/Post'
+import comment from './comment.vue';
 
 var Posts = useGetPostStore()
 

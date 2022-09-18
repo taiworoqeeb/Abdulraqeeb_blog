@@ -328,3 +328,207 @@ export const useGetPostStore = defineStore('getPost', {
   },
   persist: true
 })
+
+export const useResponseStore = defineStore('commentReply', {
+  state: () =>({
+    postId: '',
+    commnentId: '',
+    replyId: '',
+    name: '',
+    comment: '',
+    reply: '',
+    message: null,
+    error: null,
+    status: null,
+    hideComment: true
+  }),
+  actions:{
+    async addComment(){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+          const post = useGetPostStore()
+        this.postId = post.id
+        const body = {
+          name: this.name,
+          comment: this.comment
+        }
+        const res = await fetch(`${URL}/addComment/${this.postId}`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.comment = ''
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+
+    async addReply(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const body = {
+          name: this.name,
+          reply: this.reply
+        }
+        const res = await fetch(`${URL}/addReply/${id}`, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.reply = ''
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+
+    async upvoteComment(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      
+      try {
+        const res = await fetch(`${URL}/commentvote/${id}?status=upvote`, {
+          method: 'PUT'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async downvoteComment(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const res = await fetch(`${URL}/commentvote/${id}?status=downvote`, {
+          method: 'PUT'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async upvoteReply(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const res = await fetch(`${URL}/replyvote/${id}?status=upvote`, {
+          method: 'PUT'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async downvoteReply(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const res = await fetch(`${URL}/replyvote/${id}?status=downvote`, {
+          method: 'PUT'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async deleteReply(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const res = await fetch(`${URL}/deleteReply/${id}`, {
+          method: 'DELETE'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    },
+    async deleteComment(id){
+      this.message = null
+      this.error = null
+      this.status = null
+      try {
+        const res = await fetch(`${URL}/deleteComment/${id}`, {
+          method: 'DELETE'
+        })
+        const data = res.json()
+        if(data.status === true){
+          this.status = true
+          this.message = data.message
+        }else{
+          this.status = false
+          this.message = data.message
+        }
+      } catch (error) {
+        this.error = error
+      }
+    }
+
+  },
+  persist: true
+})

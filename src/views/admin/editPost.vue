@@ -44,21 +44,20 @@
                 <div class="markdown">
                     <MdEditor
                       language="en-US"
-                        preview-theme="default"
-                        :preview="false"
-                        code-theme="atom"
-                        v-model="Post.content"
-                        :no-prettier="false"
-                        :no-katex="false"
-                        :no-mermaid="false"
-                        :no-iconfont="false"
-                        placeholder="Enter your post content"
-                        :sanitize="sanitize"
-                        :spellcheck="true"
-                        :autocapitalize="true"
-                        :autosave="true"
-                        @onUploadImg="onUploadImg"
-                        
+                      preview-theme="default"
+                      :preview="false"
+                      code-theme="atom"
+                      v-model="Post.content"
+                      :no-prettier="false"
+                      :no-katex="false"
+                      :no-mermaid="false"
+                      :no-iconfont="false"
+                      placeholder="Enter your post content"
+                      :sanitize="sanitize"
+                      :spellcheck="true"
+                      :autocapitalize="true"
+                      :autosave="true"
+                      @onUploadImg="onUploadImg"  
                     > 
                     </MdEditor>
                  
@@ -74,8 +73,7 @@
             </form>
         </body>
        
-    </main>
-    
+    </main>   
 </template>
 
 <script setup>
@@ -91,15 +89,11 @@ import screenfull from 'screenfull';
 import router from '@/router';
 import katex from 'katex';
 import 'katex/dist/katex.min.css';
-
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.css';
-
 import mermaid from 'mermaid';
-
 import highlight from 'highlight.js';
 import 'highlight.js/styles/tokyo-night-dark.css';
-
 import prettier from 'prettier';
 import parserMarkdown from 'prettier/parser-markdown';
 import {useEditPostStore} from '@/store/Post';
@@ -233,10 +227,7 @@ MdEditor.config({
     })
     var id = props.id
     
-    const Post = useEditPostStore()
-
-    
-  
+    const Post = useEditPostStore() 
     
     onMounted(() =>{
         if(!localStorage.Token && !localStorage.User){

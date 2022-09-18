@@ -15,7 +15,7 @@
             <hr>
             <p class=" desc text-xl dark:text-white mb-4 md:text-xl max-w-xl sm:text-l text-justify">{{Posts.post.desc}}</p>
         </section>
-            <article  class="article text-justify" :class="{dark: state == true}" >
+            <article  class="article text-justify text-white dark:text-white" :class="{dark: state == true}" >
                 <MdEditor 
                 :model-value="Posts.post.content"
                 preview-only 
@@ -24,6 +24,7 @@
                 preview-theme="default"
                 code-theme="atom"
                 :show-code-row-number="true"
+                
                 
                  />
             </article>
@@ -154,11 +155,14 @@ main.shortPost .md-dark{
 
 main.shortPost .default-theme{
     background: var(--light);
+    color: #000
+   
 }
 
 main.shortPost.dark .default-theme{
     --tw-bg-opacity: 1;
     background: rgb(13 36 56 / var(--tw-bg-opacity)) !important;
+    color: white
 }
 
 main.shortPost .md-preview.default-theme {

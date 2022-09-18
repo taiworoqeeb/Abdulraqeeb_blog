@@ -10,19 +10,37 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      scrollPos: {
+          top: 0,
+          left: 0,
+      },
+    },
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import('@/views/About.vue')
+    component: () => import('@/views/About.vue'),
+    meta: {
+      scrollPos: {
+          top: 0,
+          left: 0,
+      },
+    },
 
   },
   {
     path: '/blog/:id',
     name: 'Post',
     component: () => import('@/views/posts/postDetails.vue'),
-    props: true
+    props: true,
+    meta: {
+      scrollPos: {
+          top: 0,
+          left: 0,
+      },
+    },
   },
   {
     path: '/admin/login',
@@ -78,12 +96,24 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
+    if (savedPosition ) {
+      const scrollpos = savedPosition ||
+        to.meta?.scrollPos ||
+        { left: 0, top: 0 }
+      return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(scrollpos)
+        }, 600) // transition just before 600ms
+    })
     } else {
       return { top: 0, behavior: 'smooth', }
     }
   }
+})
+
+router.beforeEach((to, from, next) => {
+  from.meta?.scrollPos && (from.meta.scrollPos.top = window.scrollY)
+  return next()
 })
 
 export default router
