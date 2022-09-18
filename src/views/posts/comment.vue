@@ -183,17 +183,7 @@ const format_date = (value) => {
         }
     }
 const submitComment = ()=>{
-    var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
+   
     Swal.fire({
         title: 'Do you want to submit comment?',
         showDenyButton: true,
@@ -205,48 +195,38 @@ const submitComment = ()=>{
             localStorage.setItem('username', Response.name)
             Response.addComment().then(() => {
               if(Response.status && Response.message){
-                Toast.fire({
+                Swal.fire({
                 icon: 'success',
-                title: `${Response.message}`,
+                title: 'Done',
+                text: `${Response.message}`,
               })
               Posts.getPostById()
             }else if(!Response.status && Response.message){
-                Toast.fire({
+                Swal.fire({
                     icon: 'error',
-                    title: `${Response.message}`
+                    title: 'Oops...',
+                    text: `${Response.message}`
                 })
         }
 
         if(Response.error){
-         Toast.fire({
-            icon: 'error',
-            title: `${Response.error}`
-          })
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${Response.message}`
+                })
         }    
           })
           
          
         }else if(result.isDenied){
-          Toast.fire({
-            title:'Changes are not saved',
-            icon: 'info'
-            })
+          Swal.fire('Changes are not saved', '', 'info')
         }
       })
 }
 
 const submitReply = (id)=>{
-    var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
+    
     Swal.fire({
         title: 'Do you want to reply?',
         showDenyButton: true,
@@ -258,48 +238,38 @@ const submitReply = (id)=>{
             localStorage.setItem('username', Response.name)
             Response.addReply(id).then(() => {
               if(Response.status && Response.message){
-             Toast.fire({
+              Swal.fire({
                 icon: 'success',
-                title: `${Response.message}`,
+                title: 'Done',
+                text: `${Response.message}`,
               })
                Posts.getPostById()
             }else if(!Response.status && Response.message){
-          Toast.fire({
-            icon: 'error',
-            title: `${Response.message}`
-          })
+          Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
         }
 
         if(Response.error){
-         Toast.fire({
-            icon: 'error',
-            title: `${Response.error}`
-          })
+         Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
         }    
           })
           
          
         }else if(result.isDenied){
-          Toast.fire({
-            title:'Changes are not saved',
-            icon: 'info'
-            })
+          Swal.fire('Changes are not saved', '', 'info')
         }
       })
 }
 
 const deleteComment = (id)=>{
-     var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
+     
     Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -312,24 +282,27 @@ const deleteComment = (id)=>{
         if (result.isConfirmed) {
             Response.deleteComment(id).then(() =>{
                 if(Response.status && Response.message){
-                    Toast.fire({
+                      Swal.fire({
                         icon: 'success',
-                        title: `${Response.message}`,
+                        title: 'Done',
+                        text: `${Response.message}`,
                     })
                      Posts.getPostById()
                     
                 }else if(!Response.status && Response.message){
-                    Toast.fire({
-                        icon: 'error',
-                        title: `${Response.message}`
-                    })
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
                 }
 
                 if(Response.error){
-                    Toast.fire({
-                        icon: 'error',
-                        title:`${Response.error}`
-                    })
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
                 }    
          })
    
@@ -338,17 +311,7 @@ const deleteComment = (id)=>{
 }
 
 const deleteReply = (id)=>{
-     var Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-    })
+     
     Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -361,24 +324,27 @@ const deleteReply = (id)=>{
         if (result.isConfirmed) {
             Response.deleteReply(id).then(() =>{
                 if(Response.status && Response.message){
-                    Toast.fire({
+                      Swal.fire({
                         icon: 'success',
-                        title: `${Response.message}`,
+                        title: 'Done',
+                        text: `${Response.message}`,
                     })
                      Posts.getPostById()
                     
                 }else if(!Response.status && Response.message){
-                    Toast.fire({
-                        icon: 'error',
-                        title: `${Response.message}`
-                    })
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
                 }
 
                 if(Response.error){
-                    Toast.fire({
-                        icon: 'error',
-                        title:`${Response.error}`
-                    })
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `${Response.message}`
+                })
                 }    
          })
    
