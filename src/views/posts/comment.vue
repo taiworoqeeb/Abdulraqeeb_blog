@@ -7,6 +7,9 @@
                     <label for="name">Name: </label>
                     <input v-model="Response.name" type="text" placeholder="Enter your name">
                 </div>
+                <div v-else>
+                    <label for="name">Name: {{username}}</label>
+                </div>
                     <label for="comment">Comment: </label>
                     <textarea v-model="Response.comment" placeholder="Comment"></textarea>
                 <div class="submit">
@@ -18,7 +21,7 @@
         <section class="comments">
             <div v-if="!Response.hideComment" >
                 <div v-if="Posts.post.comments?.length">
-                    <ul v-for="comment in Posts.post.comments" :key="comment._id">
+                    <ul v-for="(comment, index) in Posts.post.comments" :key="comment._id">
                         <li>
                             <div class="CommentStatements">
                                 <h1>
@@ -52,19 +55,22 @@
                                                 delete
                                             </span>
                                         </button>
-                                        <button @click="toggleReply">
+                                        <button @click="toggleReply(index)" :key="comment._id">
                                             <span class="material-icons">
                                                 reply
                                             </span> 
                                         </button>
                                         
                                     </div>
-                                    <div class="ReplyInput" v-if="showReply">
+                                    <div class="ReplyInput" v-if="showReply[index]">
                                         <form @submit.prevent>
                                         <span>REPLY</span>
                                         <div v-if="!username">
                                             <label for="name">Name: </label>
                                             <input v-model="Response.name" type="text" placeholder="Enter your name">
+                                        </div>
+                                        <div v-else>
+                                            <label for="name">Name: {{username}} </label>
                                         </div>
                                             <label for="reply">Reply: </label>
                                             <textarea v-model="Response.reply" placeholder="Reply"></textarea>
@@ -196,19 +202,19 @@ const submitComment = ()=>{
         denyButtonText: `Don't submit`,
       }).then((result) =>{
         if(result.isConfirmed){
+            localStorage.setItem('username', Response.name)
             Response.addComment().then(() => {
               if(Response.status && Response.message){
-             Toast.fire({
+                Toast.fire({
                 icon: 'success',
                 title: `${Response.message}`,
-              }).then(() =>{
-                Posts.getPostById()
               })
+              Posts.getPostById()
             }else if(!Response.status && Response.message){
-          Toast.fire({
-            icon: 'error',
-            title: `${Response.message}`
-          })
+                Toast.fire({
+                    icon: 'error',
+                    title: `${Response.message}`
+                })
         }
 
         if(Response.error){
@@ -249,14 +255,14 @@ const submitReply = (id)=>{
         denyButtonText: `No`,
       }).then((result) =>{
         if(result.isConfirmed){
+            localStorage.setItem('username', Response.name)
             Response.addReply(id).then(() => {
               if(Response.status && Response.message){
              Toast.fire({
                 icon: 'success',
                 title: `${Response.message}`,
-              }).then(()=>{
-                Posts.getPostById()
               })
+               Posts.getPostById()
             }else if(!Response.status && Response.message){
           Toast.fire({
             icon: 'error',
@@ -309,9 +315,8 @@ const deleteComment = (id)=>{
                     Toast.fire({
                         icon: 'success',
                         title: `${Response.message}`,
-                    }).then(()=>{
-                        Posts.getPostById()
                     })
+                     Posts.getPostById()
                     
                 }else if(!Response.status && Response.message){
                     Toast.fire({
@@ -359,9 +364,8 @@ const deleteReply = (id)=>{
                     Toast.fire({
                         icon: 'success',
                         title: `${Response.message}`,
-                    }).then(()=>{
-                       Posts.getPostById()
                     })
+                     Posts.getPostById()
                     
                 }else if(!Response.status && Response.message){
                     Toast.fire({
@@ -403,14 +407,14 @@ const downvoteReply = (id)=>{
     })
 }
 
-const showReply = ref(false)
+const showReply = ref([false])
 const toggleComment = () =>{
     Response.hideComment = !Response.hideComment
    
 }
 
-const toggleReply = () =>{
-    showReply.value = !showReply.value
+const toggleReply = (index) =>{
+    showReply.value[index] = !showReply.value[index]
 }
 </script>
 

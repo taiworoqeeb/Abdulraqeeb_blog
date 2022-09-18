@@ -362,9 +362,10 @@ export const useResponseStore = defineStore('commentReply', {
           },
           body: JSON.stringify(body)
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.comment = ''
+          this.name = ''
           this.status = true
           this.message = data.message
         }else{
@@ -393,9 +394,10 @@ export const useResponseStore = defineStore('commentReply', {
           },
           body: JSON.stringify(body)
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.reply = ''
+          this.name = ''
           this.status = true
           this.message = data.message
         }else{
@@ -416,7 +418,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/commentvote/${id}?status=upvote`, {
           method: 'PUT'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
@@ -436,7 +438,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/commentvote/${id}?status=downvote`, {
           method: 'PUT'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
@@ -456,7 +458,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/replyvote/${id}?status=upvote`, {
           method: 'PUT'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
@@ -476,7 +478,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/replyvote/${id}?status=downvote`, {
           method: 'PUT'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
@@ -496,7 +498,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/deleteReply/${id}`, {
           method: 'DELETE'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
@@ -516,7 +518,7 @@ export const useResponseStore = defineStore('commentReply', {
         const res = await fetch(`${URL}/deleteComment/${id}`, {
           method: 'DELETE'
         })
-        const data = res.json()
+        const data = await res.json()
         if(data.status === true){
           this.status = true
           this.message = data.message
