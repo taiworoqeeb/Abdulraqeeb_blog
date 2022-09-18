@@ -31,7 +31,7 @@
 
 <script setup>
 import Swal from 'sweetalert2';
-import logo from '@/assets/logo.png'
+import logo from '@/assets/logo_light.png'
 import mylogo from '@/assets/mylogo.png'
 import {useUserStore} from '@/store/User'
 import router from '@/router';
