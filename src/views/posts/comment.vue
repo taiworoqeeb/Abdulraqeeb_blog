@@ -54,7 +54,7 @@
                                             
                                         </label>
                                         
-                                        <button @click="deleteComment(comment._id)" class="delete">
+                                        <button v-if="username === comment.name || Response.name === comment.name" @click="deleteComment(comment._id, comment.name)" class="delete">
                                             <span class="material-icons">
                                                 delete
                                             </span>
@@ -117,7 +117,7 @@
                                                     </button>
                                                     <span>{{reply.downvote}}</span>
                                                 </label>
-                                                <button @click="deleteReply(reply._id)" class="delete">
+                                                <button v-if="username === reply.name || Response.name === reply.name" @click="deleteReply(reply._id, reply.name)" class="delete">
                                                     <span class="material-icons">
                                                         delete
                                                     </span>
@@ -283,88 +283,93 @@ const submitReply = (id)=>{
       })
 }
 
-const deleteComment = (id)=>{
-     
-    Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Response.deleteComment(id).then(() =>{
-                if(Response.status && Response.message){
-                      Swal.fire({
-                        icon: 'success',
-                        title: 'Done',
-                        text: `${Response.message}`,
+const deleteComment = (id, name)=>{
+    if(Response.name === name || username === name){
+            Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Response.deleteComment(id).then(() =>{
+                    if(Response.status && Response.message){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Done',
+                            text: `${Response.message}`,
+                        })
+                        Posts.getPostById()
+                        
+                    }else if(!Response.status && Response.message){
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `${Response.message}`
                     })
-                     Posts.getPostById()
-                    
-                }else if(!Response.status && Response.message){
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: `${Response.message}`
-                })
-                }
+                    }
 
-                if(Response.error){
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: `${Response.message}`
-                })
-                }    
-         })
-   
-        }
-    })
+                    if(Response.error){
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `${Response.message}`
+                    })
+                    }    
+            })
+    
+            }
+        })
+    }
+     
+    
 }
 
-const deleteReply = (id)=>{
-     
-    Swal.fire({
-    title: 'Are you sure?',
-    text: "You won't be able to revert this!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Response.deleteReply(id).then(() =>{
-                if(Response.status && Response.message){
-                      Swal.fire({
-                        icon: 'success',
-                        title: 'Done',
-                        text: `${Response.message}`,
+const deleteReply = (id, name)=>{
+     if(Response.name === name || username === name){
+            Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Response.deleteReply(id).then(() =>{
+                    if(Response.status && Response.message){
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Done',
+                            text: `${Response.message}`,
+                        })
+                        Posts.getPostById()
+                        
+                    }else if(!Response.status && Response.message){
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `${Response.message}`
                     })
-                     Posts.getPostById()
-                    
-                }else if(!Response.status && Response.message){
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: `${Response.message}`
-                })
-                }
+                    }
 
-                if(Response.error){
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: `${Response.message}`
-                })
-                }    
-         })
+                    if(Response.error){
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: `${Response.message}`
+                    })
+                    }    
+            })
+    
+            }
+        })
+     }
    
-        }
-    })
 }
 
 const upvoteComment = (id)=>{
