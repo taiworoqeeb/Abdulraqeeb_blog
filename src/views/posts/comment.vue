@@ -24,6 +24,10 @@
                     <ul v-for="(comment, index) in Posts.post.comments" :key="comment._id">
                         <li>
                             <div class="CommentStatements">
+
+                               <span class="CommentAvatar">
+                                        <img :src="'https://api.multiavatar.com/'+ comment.name + '.png'" alt="avatar"/>
+                                    </span>
                                 <h1>
                                     <span class="CommentName">{{comment.name}}</span>
                                     <span class="CommentDate">{{format_date(comment.createdAt)}}</span>
@@ -86,6 +90,9 @@
                                 <ul v-for="reply in comment.reply" :key="reply._id">
                                     <li>
                                         <div class="ReplyStatements">
+                                            <span class="ReplyAvatar">
+                                                <img :src="'https://api.multiavatar.com/'+ reply.name + '.png'" alt="avatar"/>
+                                            </span>
                                             <h1>
                                                 <span class="ReplyName">{{reply.name}}</span>
                                                 <span class="ReplyDate">
@@ -152,7 +159,8 @@ import dayjs from 'dayjs'
 import Swal from 'sweetalert2'
 import {useGetPostStore, useResponseStore} from '@/store/Post';
 import { ref } from 'vue';
-import router from '@/router'
+// import router from '@/router'
+// import multiavatar from '@multiavatar/multiavatar'
 var localizedFormat = require('dayjs/plugin/localizedFormat')
 dayjs.extend(localizedFormat)
 
@@ -161,6 +169,13 @@ const Response = useResponseStore()
 
 const state = ref('')
 // const content = ref(props.post.content)
+// const userAvatar = ref([''])
+
+// const Avatar = (name, index)=>{
+//     userAvatar.value[index]= multiavatar(name)
+//     console.log(userAvatar.value[index])
+//     return userAvatar.value[index]
+// }
 
 const appTheme = localStorage.getItem('theme');
     if(appTheme ==='dark'){
@@ -479,7 +494,16 @@ const toggleReply = (index) =>{
         li div.CommentStatements{
             width: 50%;
             margin-left: 15%;
-            display: block;
+            
+             span.CommentAvatar{
+                    display: flex;
+                    margin: 5px;
+                    img{
+                        width: 60px;
+                        border: 1px solid #000;
+                        border-radius: 30px;
+                    }
+                }
             h1 {
                 text-align: left;
                 span.CommentName{
@@ -489,6 +513,7 @@ const toggleReply = (index) =>{
                 font-weight: bold;
                 font-size: large;
                 }
+               
                 span.CommentDate{
                     margin-left: 5px;
                     font-size: small;
@@ -505,7 +530,7 @@ const toggleReply = (index) =>{
 
             div.actions{
                 margin: 5px;
-                padding-left: 8px;
+                padding-left: 5px;
                 .activityButton{
                     align-items: flex-start;
                     justify-content: left;
@@ -570,7 +595,17 @@ const toggleReply = (index) =>{
         li div.ReplyStatements{
             width: 50%;
             margin-left: 15%;
-            display: block;
+            
+            span.ReplyAvatar{
+                    display: flex;
+                    margin: 5px;
+                    margin-left: 20%;
+                    img{
+                        width: 60px;
+                        border: 1px solid #000;
+                        border-radius: 30px;
+                    }
+                }
             h1 {
                 text-align: left;
                 margin-left: 20%;
@@ -629,6 +664,11 @@ const toggleReply = (index) =>{
         }
 
         li div.CommentStatements{
+            span.CommentAvatar{
+                    img{
+                        border: 1px solid #fff;
+                    }
+                }
             h1 {
                 span.CommentName{
                 color: white;
@@ -657,6 +697,11 @@ const toggleReply = (index) =>{
             }
         }
         li div.ReplyStatements{
+            span.ReplyAvatar{
+                    img{
+                        border: 1px solid #fff;
+                    }
+                }
             h1 {
                 span.ReplyName{
                 color: white;
