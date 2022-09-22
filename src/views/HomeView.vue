@@ -29,6 +29,12 @@
                       </div>
                   </li> 
             </ul> 
+            <div class="recentDiv">
+              <p style="float: right;margin-top: 20px;"> 
+                  <button v-if="Posts.current_page > 1" @click="Posts.prevPage" class="prev" >Previous</button> 
+                  <button v-if="(Posts.current_page * Posts.size) < Posts.posts.length" @click="Posts.nextPage" class="next">Next</button>
+                </p>
+            </div>
            
           </div>
 
@@ -43,7 +49,7 @@
 
 <script setup>
 import dayjs from 'dayjs'
-import {onMounted, ref} from 'vue'
+import {onMounted, computed, ref} from 'vue'
 import router from '@/router'
 import {getPosts} from '@/composite/Posts'
 import navigation from '@/components/navigation.vue';
@@ -58,6 +64,17 @@ const Posts = useGetPostStore()
     onMounted(() =>{
       Posts.getPosts()
     })
+
+    // computed(()=>{
+    //   function sortedPost(){
+    //     return Posts.displayPost.filter((row, index) =>{
+    //     let start = (Posts.current_page - 1) * Posts.size;
+    //     let end = Posts.current_page * Posts.size;
+    //     if(index >= start && index < end) return true
+    //   })
+    //   }
+    // })
+    
 
   const format_date = (value) => {
       if (value) {
@@ -89,6 +106,44 @@ const Posts = useGetPostStore()
 </script>
 
 <style scoped>
+
+  .recentDiv{
+    margin-right: 2%;
+    float: right;
+    border: none;
+  }
+
+  .recentDiv .prev{
+    border:1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 30px;
+    margin-right: 25px;
+  }
+  .recentDiv .prev:hover{
+    background: #ddd;
+  }
+  .recentDiv .next:hover{
+    background: #ddd;
+  }
+
+  .home.dark .recentDiv .prev:hover{
+     background: var(--dark-alt);
+  }
+  .home.dark .recentDiv .next:hover{
+     background: var(--dark-alt);
+  }
+
+  .home.dark .recentDiv .prev{
+      color: whitesmoke
+  }
+  .home.dark .recentDiv .next{
+    color: whitesmoke
+  }
+  .recentDiv .next{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 41px;
+  }
 
   .card{
     display: flex;

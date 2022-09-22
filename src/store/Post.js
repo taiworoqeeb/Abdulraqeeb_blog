@@ -249,6 +249,8 @@ export const useGetPostStore = defineStore('getPost', {
     previousPost: null,
     search: null,
     posts: null,
+    size: 3,
+    current_page: 1,
   }),
 
   getters:{
@@ -256,12 +258,22 @@ export const useGetPostStore = defineStore('getPost', {
       if(state.posts && state.search && state.search !== "" && state.search !== null){
         return state.posts.filter((post) => post.title.toLowerCase().includes(state.search.toLowerCase()))
      }else{
-        return state.posts
+        return state.posts.filter((row, index) =>{
+          let start = (state.current_page - 1) * state.size;
+          let end = state.current_page * state.size;
+          if(index >= start && index < end) return true
+        })
      }
     }
   },
 
   actions: {
+    nextPage(){
+      if((this.current_page*this.size) < this.posts.length) this.current_page++;
+    },
+    prevPage(){
+      if(this.current_page > 1) this.current_page--;
+    },
     async getPosts(){
       this.message = null
       this.error = null
@@ -270,7 +282,8 @@ export const useGetPostStore = defineStore('getPost', {
         const data = await res.json()
 
         if(data.status === true){
-          this.posts = data.data
+          this.posts = data.data;
+          // this.displayPost = this.posts;
        }else if(data.status === false){
           this.message = data.message
        }

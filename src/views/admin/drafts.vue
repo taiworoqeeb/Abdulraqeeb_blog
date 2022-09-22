@@ -43,6 +43,12 @@
                 
                 </table>
             </div>
+            <div class="recentDiv">
+                <p style="float: right;margin-top: 20px;"> 
+                  <button v-if="current_page > 1" @click="prevPage" class="prev" >Previous</button> 
+                  <button v-if="(current_page * size) < posts.length" @click="nextPage" class="next">Next</button>
+                </p>
+            </div>
             </div>
             <div class="card" v-else>
                 <img  src="@/assets/loading.gif" alt="loading"/>
@@ -66,7 +72,7 @@ onMounted(() =>{
         router.push('/admin/login')
     }
 })
-const {posts, search, onSearch, load} = getDraftPosts()
+const {posts, search, size, current_page, onSearch, load, nextPage, prevPage} = getDraftPosts()
 
 load()
 
@@ -132,6 +138,28 @@ const deletePost = (id)=>{
 
 <style scoped>
 
+    .recentDiv{
+    float: right;
+    border: none;
+  }
+
+  .recentDiv .prev{
+    border:1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 30px;
+    margin-right: 25px;
+  }
+  .recentDiv .prev:hover{
+    background: #ddd;
+  }
+  .recentDiv .next:hover{
+    background: #ddd;
+  }
+.recentDiv .next{
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px 41px;
+  }
  .card{
     display: flex;
     justify-content: center;

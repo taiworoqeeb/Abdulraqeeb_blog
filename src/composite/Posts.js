@@ -16,6 +16,8 @@ export const getPosts = () =>{
     var error = ref(null);
     var posts = ref(null);
     var search = ref('');
+    var size = ref(5);
+    var current_page = ref(1)
 
     try {
         var load = async()=>{
@@ -33,16 +35,27 @@ export const getPosts = () =>{
             if(posts.value && search.value){
                     return posts.value.filter((post) => post.title.toLowerCase().includes(search.value.toLowerCase()))
             }else{
-                    return posts.value
+                    return posts.value.filter((row, index) =>{
+                        let start = (current_page.value - 1) * size.value;
+                        let end = current_page.value * size.value;
+                        if(index >= start && index < end) return true
+                      })
                 }
             }
             
+        var nextPage = () => {
+            if((current_page.value*size.value) < posts.value.length) current_page.value++;
+        }
+
+        var prevPage = () => {
+            if(current_page.value > 1) current_page.value--;
+          }
     } catch (err) {
         error.value = err.message
     }
 
     return{
-        posts, error, search, load, onSearch
+        posts, error, size, current_page, search, load, onSearch, nextPage, prevPage
     }
 }
 
@@ -129,6 +142,8 @@ export const getDraftPosts = () =>{
     var error = ref(null);
     var posts = ref(null);
     var search = ref('');
+    var size = ref(5);
+    var current_page = ref(1)
 
     try {
         var load = async()=>{
@@ -146,16 +161,28 @@ export const getDraftPosts = () =>{
             if(posts.value && search.value){
                     return posts.value.filter((post) => post.title.toLowerCase().includes(search.value.toLowerCase()))
             }else{
-                    return posts.value
+                return posts.value.filter((row, index) =>{
+                    let start = (current_page.value - 1) * size.value;
+                    let end = current_page.value * size.value;
+                    if(index >= start && index < end) return true
+                  })
                 }
             }
+
+            var nextPage = () => {
+                if((current_page.value*size.value) < posts.value.length) current_page.value++;
+            }
+    
+            var prevPage = () => {
+                if(current_page.value > 1) current_page.value--;
+              }
             
     } catch (err) {
         error.value = err.message
     }
 
     return{
-        posts, error, search, load, onSearch
+        posts, error, search, load, onSearch, nextPage, prevPage
     }
 }
 
