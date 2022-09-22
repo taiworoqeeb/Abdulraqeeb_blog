@@ -27,6 +27,8 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 // import the necessary css file
 import "vue-awesome-paginate/dist/style.css";
+import { createHead } from "@vueuse/head"
+
 
 library.add(
   faTwitter,
@@ -50,6 +52,7 @@ const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon)
   .use(pinia)
   .use(router)
+  .use( createHead())
   .mount("#app");
 
 const appTheme = localStorage.getItem("theme");

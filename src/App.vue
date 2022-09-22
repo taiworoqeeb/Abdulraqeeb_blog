@@ -10,8 +10,6 @@
 
 <script setup>
 
-
-
 </script>
 
 <style>

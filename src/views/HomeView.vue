@@ -49,11 +49,17 @@
 
 <script setup>
 import dayjs from 'dayjs'
-import {onMounted, computed, ref} from 'vue'
+import {onMounted, reactive, computed, ref} from 'vue'
 import router from '@/router'
 import {getPosts} from '@/composite/Posts'
 import navigation from '@/components/navigation.vue';
 import {useGetPostStore} from '@/store/Post'
+import {useHead} from "@vueuse/head"
+const siteData = reactive({
+  title: "Abdulraqeeb's blog",
+  description: "My personal Blog"
+})
+ 
 
 const Posts = useGetPostStore()
 
@@ -101,6 +107,69 @@ const Posts = useGetPostStore()
       // search,
       // onSearch,
       theme,
+    })
+    useHead({
+      // Can be static or computed
+      title: computed(() => siteData.title),
+      meta: [
+        {
+          name: `description`,
+          content: computed(() => siteData.description),
+        },
+        {
+          property: "og:title",
+          content: "Abdulraqeeb Taiwo | Fullstack Developer"
+        },
+        {
+          property: "og:site_name",
+          content: "Abdulraqeeb's Blog"
+        },
+        {
+          property: "og:url",
+          content: "/"
+        },
+        {
+          property: "og:type",
+          content: "website"
+        },
+        {
+          property: "og:image",
+          itemProp: "image",
+          content: "/og.png"
+        },
+        {
+          property: "og:locale",
+          content: "en:GB"
+        },
+        {
+          property: "og:image:width",
+          content: "1200"
+        },
+        {
+          property: "og:image:height",
+          content: "600"
+        },
+        {
+          name: "twitter:card",
+          content: "summary_large_image"
+        },
+        {
+          name: "twitter:image:alt",
+          content: "Abdulraqeeb Taiwo"
+        },
+        {
+          name: "twitter:title",
+          content: "Abdulraqeeb's blog"
+        },
+        {
+          name: "twitter:description",
+          content: "Welcome to my personal Blog"
+        },
+        {
+          name: "twitter:image",
+          content: "/og.png"
+        }
+      ],
     })
  
 </script>
