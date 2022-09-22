@@ -49,12 +49,12 @@
 import {getPostId, getNextPost, getPreviousPost} from '../../composite/Posts'
 // import {marked} from 'marked'
 import innerPost from './innerPost.vue'
-import {ref, onMounted, reactive, computed,} from 'vue'
+import {ref, onMounted} from 'vue'
 import router from '@/router'
 import navigation from '@/components/navigation.vue';
 import {useGetPostStore} from '@/store/Post'
 import comment from './comment.vue';
-import {useHead} from "@vueuse/head"
+
 
 
 var Posts = useGetPostStore()
@@ -71,76 +71,7 @@ var Posts = useGetPostStore()
             Posts.getContPost()
         })
 
-        if(Posts.post){
-            const siteData = reactive({
-            title: `Abdulraqeeb's blog | ${Posts.post.title}`,
-            description: `${Posts.post.desc}`
-            })
-
-            useHead({
-                // Can be static or computed
-                title: computed(() => siteData.title),
-                meta: [
-                    {
-                    name: `description`,
-                    content: computed(() => siteData.description),
-                    },
-                    {
-                    property: "og:title",
-                    content: `Abdulraqeeb's blog | ${Posts.post.title}`
-                    },
-                    {
-                    property: "og:site_name",
-                    content: "Abdulraqeeb's Blog"
-                    },
-                    {
-                    property: "og:url",
-                    content: `/blog/${Posts.post._id}`
-                    },
-                    {
-                    property: "og:type",
-                    content: "website"
-                    },
-                    {
-                    property: "og:image",
-                    itemProp: "image",
-                    content: Posts.post.image_url
-                    },
-                    {
-                    property: "og:locale",
-                    content: "en:GB"
-                    },
-                    {
-                    property: "og:image:width",
-                    content: "1200"
-                    },
-                    {
-                    property: "og:image:height",
-                    content: "600"
-                    },
-                    {
-                    name: "twitter:card",
-                    content: "summary_large_image"
-                    },
-                    {
-                    name: "twitter:image:alt",
-                    content: `Abdulraqeeb's blog | ${Posts.post.title}`
-                    },
-                    {
-                    name: "twitter:title",
-                    content: `Abdulraqeeb's blog | ${Posts.post.title}`
-                    },
-                    {
-                    name: "twitter:description",
-                    content: Posts.post.desc
-                    },
-                    {
-                    name: "twitter:image",
-                    content: Posts.post.image_url
-                    }
-                ],
-            })
-        }
+        
         
 
         
