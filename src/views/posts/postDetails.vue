@@ -2,7 +2,7 @@
 <navigation/>
 <main>
     <body :class="{dark: darkPost === 'dark'}">
-            <div class="post relative overflow-hidden" :class="{dark: darkPost === 'dark'}">
+            <div class="post" :class="{dark: darkPost === 'dark'}">
             <div class="backButton" :class="{dark: darkPost === 'dark'}">
                 <button @click="back"><font-awesome-icon icon="fa-solid fa-arrow-left-long" /> Back</button>
             </div>
@@ -10,7 +10,7 @@
             <div class="view flex flex-col mb-20 items-center w-full mx-auto">
                 <article v-if="Posts.post" :key="Posts.post._id" >
                     <innerPost />
-                    <div class="grid md:grid-cols-2 lg:-mx-24 mt-12">
+                    <div class="nav grid md:grid-cols-2 lg:-mx-24 mt-12">
                         <div v-if="Posts.previousPost" :key="Posts.previousPost._id" class=" previous " :class="{dark: darkPost === 'dark'}">
                         <router-link :to="{name: 'Post', params:{id: Posts.previousPost._id}}"  >
                             <p class="uppercase text-gray-500 px-5 mb-4 dark:text-white dark:opacity-60"> Previous </p>
@@ -162,6 +162,22 @@ var Posts = useGetPostStore()
     padding: 10px;
     margin: 100px auto;
     max-width: 100%;
+ }
+
+ @media screen and (max-width: 991px) {
+    
+    .view{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 150%;
+    }
+
+    .nav{
+        width: 50%;
+        margin-left: 20px;
+    }
+   
  }
 
 </style>

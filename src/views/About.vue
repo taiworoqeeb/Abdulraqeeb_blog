@@ -217,4 +217,11 @@ main{
     
 }
 
+@media screen and (max-width: 991px) {
+  body{
+    justify-content: center;
+    margin-right: -30px;
+  }
+}
+
 </style>

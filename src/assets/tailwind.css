@@ -25,7 +25,7 @@ input:-webkit-autofill:focus {
 }
 
 
-@media screen and (max-width: 540px) {
+/* @media screen and (max-width: 540px) {
   .view {
       width: 400px;
       padding: 20px;
@@ -36,7 +36,7 @@ input:-webkit-autofill:focus {
   
 }
 
-/* For Tablets */
+
 @media screen and (min-width: 540px) and (max-width: 780px) {
   .view {
       width: 600px;
@@ -48,7 +48,7 @@ input:-webkit-autofill:focus {
   
 }
 
-/* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 600px) {  
 
   .view {
@@ -66,11 +66,11 @@ input:-webkit-autofill:focus {
     padding: 15px;
   }
   
-  /* Your CSS Code for this device size */    
+
 
  }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) {  
   .view {
     width: 400px;
@@ -80,11 +80,11 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */    
+     
 
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 900px) {  
   .view {
     width: 500px;
@@ -100,11 +100,11 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */    
+  
 
 } 
 
-/* Large devices (laptops/desktops, 992px and up) */
+
 @media only screen and (min-width: 992px) {  
   .view {
     width: 400px;
@@ -114,11 +114,11 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */    
+  
 
 }      
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+
 @media only screen and (min-width: 1200px) {
   .view {
     width: 1000px;
@@ -128,7 +128,7 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */ 
+  
 
 }
 
@@ -147,7 +147,7 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */ 
+  
 
 }
 
@@ -160,7 +160,7 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */ 
+  
 
 }
 
@@ -179,7 +179,7 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */ 
+  
 
 }
 
@@ -198,12 +198,12 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device size */ 
+  
 
 }
 
 
-/* According to Mobile Orientation */
+
 @media only screen and (orientation: landscape) {   
   .view {
     width: 710px;
@@ -219,6 +219,7 @@ input:-webkit-autofill:focus {
 .homelist{
   padding: 15px;
 }
-  /* Your CSS Code for this device orientation */    
+   
 
-}
+} 
+*/

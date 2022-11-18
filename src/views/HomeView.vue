@@ -257,7 +257,8 @@ const Posts = useGetPostStore()
     margin-top: 9%;
     display: inline-flex;
     justify-content: center;
-    max-width: 200px;
+    max-width: 100%;
+    width: 200px;
     height: 150px;
     border-radius: 10px;
     border-width: 3px;
@@ -320,6 +321,7 @@ const Posts = useGetPostStore()
     display: flex;
     padding: 10px 6px;
     width: 25%;
+    max-width: 100%;
     margin-left: 70%;
     margin-bottom: 50px;
     box-sizing: border-box;
@@ -353,6 +355,63 @@ const Posts = useGetPostStore()
   .submit input.dark::placeholder{
     color: gray;
     opacity: 1;
+  }
+
+  @media screen and (max-width: 991px) {
+    main.homelist{
+      align-items: center;
+      width: 110%;
+      max-width: max-content;
+      margin: 0 0 0 0;
+    }
+
+    .home{
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .home .submit{
+      width: 98%;
+      margin-right: 20%;
+    }
+
+    .home .submit input{
+      width: 30%;
+    }
+
+    .home ul{
+      width: 100%;
+      max-width: 100%;
+    }
+    .home li{
+      width: 100%;
+      max-width: 100%;
+      display: inline-block;
+      justify-content: center; 
+      align-items: center;
+    }
+
+    .home li img{
+      width: 100%;
+      height: 80%;
+      max-width: 100%;
+      justify-content: center;
+      align-items: center;
+      display: block;
+      
+    }
+
+    .home .info .title{
+      text-align: center;
+    }
+
+    .home .info .tag{
+      display: inline-block;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
   }
 
 </style>

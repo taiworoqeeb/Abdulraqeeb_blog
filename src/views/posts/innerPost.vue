@@ -5,11 +5,13 @@
             <br/>
         </header>
         <section class="innerpage">
-            <h1 class="text-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{Posts.post.title}}</h1>
-            
-            <div v-if="Posts.post.tags" v-for="tag in Posts.post.tags" :key="tag" class="tag" :class="{dark: state == true}">
+            <h1 class="title ext-2xl font-bold md:text-3xl dark:text-white text-center mb-5"> {{Posts.post.title}}</h1>
+            <div class="tags">
+                <div v-if="Posts.post.tags" v-for="tag in Posts.post.tags" :key="tag" class="tag" :class="{dark: state == true}">
                 <span>#{{tag.toLowerCase()}}</span>
+                 </div>
             </div>
+            
             <hr>
             <p class="date">Date: {{format_date(Posts.post.createdAt)}}</p>
             <hr>
@@ -149,12 +151,12 @@ const appTheme = localStorage.getItem('theme');
 <style>
 @import 'md-editor-v3/lib/style.css';
 main.shortPost header img.img{
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     width: 750px ;
     height: 300px;
     padding: 15px;
-    margin: auto;
+    align-items: center;
     
 }
 
@@ -162,16 +164,16 @@ main.shortPost {
     display: inline-block;
     min-width: 780px;
     max-width: 840px;
-    margin-left: 15px auto;
-    margin-right: 15px auto;
+    margin-left: 15px;
+    margin-right: 15px;
     width: 800px;
     justify-content: center;
 }
 main.shortPost .innerpage p{
     max-width: 815px;
     margin: 10px;
-    margin-left: 5px auto;
-    margin-right: 5px auto;
+    margin-left: 5px;
+    margin-right: 5px;
     
 }
 
@@ -213,9 +215,10 @@ main.shortPost .desc{
 }
 main.shortPost .article{
     margin: 10px;
-    margin-left: 5px auto;
-    margin-right: 5px auto;
-    max-width: 810px; 
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 810px; 
+    max-width: 100%;
 }
 
 main.shortPost .md-dark{
@@ -235,8 +238,60 @@ main.shortPost.dark .default-theme{
     color: white
 }
 
-main.shortPost .md-preview.default-theme {
+main.shortPost .md-editor-preview {
     text-align: justify;
     word-break: keep-all;
+}
+
+@media screen and (max-width: 991px) {
+    main{
+        width: 100%;
+        max-width: 100%;
+    }
+    main.shortPost{
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+        width: 700px;
+        margin-right: -315px;
+        
+    }
+    main.shortPost header img.img{
+        width: 55%;
+        align-items: center;
+        margin-left: -250px;  
+    }
+    section.innerpage{
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    section.innerpage .title{
+        margin-left: -250px;  
+    }
+    section.innerpage .tags{
+        justify-content: center;
+        margin-left: -250px; 
+    }
+
+    section.innerpage p.date{
+        margin-left: -150px; 
+    }
+    hr{
+        
+        width: 62%;
+        margin-left: 50px; 
+    }
+    main.shortPost .desc{
+        width: 60%;
+    }
+    main.shortPost .article{
+        width: 60%;
+    }
+
+    main.shortPost .md-editor-preview {
+        text-align: justify;
+        word-break: keep-all;
+    }
 }
 </style>

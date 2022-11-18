@@ -142,4 +142,19 @@ nav .links a.router-link-exact-active:hover{
   text-decoration: 3px underline solid rgb(94, 48, 219);
 }
 
+@media screen and (max-width: 991px) {
+ header .logo{
+    width: 40px;
+  }
+
+  header .mylogo{
+    width: 150px;
+    margin-right: 40px;
+  }
+
+  nav .links{
+    font-size: small;
+  }
+}
+
 </style>
