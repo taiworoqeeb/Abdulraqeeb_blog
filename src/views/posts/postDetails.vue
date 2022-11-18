@@ -71,23 +71,7 @@ var Posts = useGetPostStore()
             Posts.getContPost()
         })
 
-        
-        
-
-        
-        // var nextPost = ref(null)
-        // var previousPost= ref(null)
         var darkPost = ref('')
-
-        // const altPost = async()=>{
-        //     nextPost.value = await getNextPost(id);
-        //     previousPost.value = await getPreviousPost(id);
-        // }
-        // altPost()
-
-        // var {post, error, load} = getPostId(id)
-
-        // load()
 
 
          const appTheme = localStorage.getItem('theme');
