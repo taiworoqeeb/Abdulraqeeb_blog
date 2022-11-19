@@ -128,6 +128,10 @@ useHead({
   .about{
     max-width: 100%;
     margin: 5px 10px 5px 10px;
+    width: 60%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
   section{
     max-width: 100%;
@@ -220,7 +224,15 @@ main{
     margin-bottom: 90px;
     
 }
-
+@media screen and (max-width: 991px) {
+  .about{
+    margin: 5px 10px 5px 10px;
+    width: 95%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 
 </style>
