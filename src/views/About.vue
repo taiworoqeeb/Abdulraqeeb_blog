@@ -1,6 +1,6 @@
 <template>
     <navigation />
-        <main class="w-full">
+        <main class="about">
         <body :class="{dark: state == true}">
         <section :class="{dark: state == true}">
                 <img :class="{black: state == true}" src="../assets/myPics.jpg" alt="myPics">
@@ -125,12 +125,18 @@ useHead({
 </script>
 
 <style scoped>
+  .about{
+    max-width: 100%;
+    margin: 5px 10px 5px 10px;
+  }
+  section{
+    max-width: 100%;
+  }
 section img{
+  display: inline-flex;
     max-width: 200px;
     justify-content: center;
     margin-top: 8%;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 120px;
     border-width: 5px;
     border-color: #1B2737;
@@ -149,8 +155,6 @@ section img.black {
 article p{
     margin: 20px;
     padding: 8px;
-    margin-left: auto;
-    margin-right: auto;
     justify-content: center;
     align-items: center;
     text-align: justify;
@@ -159,7 +163,8 @@ article p{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 200;
     color: #1B2737;
-    max-width: 900px;
+    max-width: 100%;
+    width: 90%;
 }
 
 article.dark p{
@@ -197,8 +202,7 @@ ul li{
 .mylinks a{
     margin: 2px;
     padding: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    display: inline-flex;
     justify-content: center;
     font-size: xx-large;
     color: #1B2737;
@@ -217,11 +221,6 @@ main{
     
 }
 
-@media screen and (max-width: 991px) {
-  body{
-    justify-content: center;
-    margin-right: -30px;
-  }
-}
+
 
 </style>
