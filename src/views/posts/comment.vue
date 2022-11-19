@@ -408,6 +408,8 @@ const toggleReply = (index) =>{
 
 .inter{
     margin-top: 10px;
+    width: 100%;
+    max-width: 100%;
     .inputComment{
         form{
             max-width: 100%;

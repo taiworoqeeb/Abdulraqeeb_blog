@@ -1,4 +1,5 @@
 <template>
+  <div class="navBar">
 <header>
   <div class="logo" key="logo">
     <router-link v-if="state" to="/">
@@ -27,6 +28,7 @@
     <a href="https://taiworoqeeb.tech" target="_blank" rel="noreferrer noopener">Portfolio</a>
   </div>
   </nav>
+</div>
 
 </template>
 
@@ -69,6 +71,7 @@ nav{
 }
 nav .links {
   padding: 10px;
+  max-width: 100%;
   text-align: right;
   justify-content: right;
   display: inline-flex;
@@ -143,17 +146,21 @@ nav .links a.router-link-exact-active:hover{
 }
 
 @media screen and (max-width: 991px) {
+  div.navBar{
+    max-width: 100%;
+  }
  header .logo{
     width: 40px;
   }
 
   header .mylogo{
     width: 150px;
-    margin-right: 40px;
+    margin-right: 90px;
   }
 
   nav .links{
     font-size: small;
+    
   }
 }
 

@@ -109,6 +109,7 @@ var Posts = useGetPostStore()
     border-bottom: 1px solid #1B2737;
     width: 90px;
     color: #1B2737;
+    max-width: 100%;
 }
 
 .backButton.dark{
@@ -155,27 +156,55 @@ var Posts = useGetPostStore()
     color: white;
  }
 
+ .nav{
+    max-width: 100%;
+    margin-left: 390px;
+    width: 70%;
+ }
+
  .post{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
-    margin: 100px auto;
+    padding: 8px;
+    margin: 80px 5px 10px 5px;
     max-width: 100%;
  }
+ .view{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 80%;
+   
+}
+
+
 
  @media screen and (max-width: 991px) {
+    main{
+        max-width: 100%;
+    }
     
     .view{
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        max-width: 150%;
+        max-width: 100%;
+        width: 100%;
+       
     }
 
     .nav{
         width: 50%;
         margin-left: 20px;
+        max-width: 100%;
+    }
+
+    article{
+        max-width: 100%;
+        margin: 0px 5px 0px 5px;
+        padding: 5px;
     }
    
  }

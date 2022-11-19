@@ -320,9 +320,9 @@ const Posts = useGetPostStore()
   .submit input{
     display: flex;
     padding: 10px 6px;
-    width: 25%;
+    width: 29%;
     max-width: 100%;
-    margin-left: 70%;
+    margin-left: 66%;
     margin-bottom: 50px;
     box-sizing: border-box;
     border: none;
@@ -360,8 +360,8 @@ const Posts = useGetPostStore()
   @media screen and (max-width: 991px) {
     main.homelist{
       align-items: center;
-      width: 110%;
-      max-width: max-content;
+      width: 100%;
+      max-width: 100%;
       margin: 0 0 0 0;
     }
 
@@ -376,7 +376,7 @@ const Posts = useGetPostStore()
     }
 
     .home .submit input{
-      width: 30%;
+      width: 34%;
     }
 
     .home ul{

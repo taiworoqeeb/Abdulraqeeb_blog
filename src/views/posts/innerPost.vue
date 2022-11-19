@@ -1,5 +1,5 @@
 <template>
-    <main v-if="Posts.post" class="shortPost w-full " :class="{dark: state == true}">
+    <main v-if="Posts.post" class="shortPost" :class="{dark: state == true}">
         <header>
             <img class="img" :src="Posts.post.image_url">
             <br/>
@@ -153,24 +153,25 @@ const appTheme = localStorage.getItem('theme');
 main.shortPost header img.img{
     display: inline-flex;
     justify-content: center;
-    width: 750px ;
+    width: 70%;
     height: 300px;
     padding: 15px;
     align-items: center;
+    max-width: 100%;
     
 }
 
 main.shortPost {
     display: inline-block;
-    min-width: 780px;
-    max-width: 840px;
+    max-width: 100%;
     margin-left: 15px;
     margin-right: 15px;
-    width: 800px;
+    width: 65%;
     justify-content: center;
 }
 main.shortPost .innerpage p{
-    max-width: 815px;
+    width: 100%;
+    max-width: 100%;
     margin: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -187,6 +188,7 @@ main.shortPost .tag{
     letter-spacing: 1px;
     font-weight: bold;
     color: #1B2737;
+    max-width: 100%;
   }
 
 main.shortPost .tag.dark{
@@ -217,7 +219,7 @@ main.shortPost .article{
     margin: 10px;
     margin-left: 5px;
     margin-right: 5px;
-    width: 810px; 
+    width: 100%; 
     max-width: 100%;
 }
 
@@ -244,54 +246,46 @@ main.shortPost .md-editor-preview {
 }
 
 @media screen and (max-width: 991px) {
-    main{
-        width: 100%;
-        max-width: 100%;
-    }
+   
     main.shortPost{
         display: inline-block;
         justify-content: center;
         align-items: center;
-        width: 700px;
-        margin-right: -315px;
+        width: 100%;
+        margin-left: 2px;
+        margin-right: 2px;
+        
         
     }
     main.shortPost header img.img{
-        width: 55%;
+        width: 90%;
+        max-width: 100%;
         align-items: center;
-        margin-left: -250px;  
+        justify-content: center;
+      
     }
     section.innerpage{
         max-width: 100%;
         margin: 0;
         padding: 0;
     }
-    section.innerpage .title{
-        margin-left: -250px;  
-    }
+    
     section.innerpage .tags{
         justify-content: center;
-        margin-left: -250px; 
+        max-width: 100%;
     }
 
-    section.innerpage p.date{
-        margin-left: -150px; 
-    }
-    hr{
-        
-        width: 62%;
-        margin-left: 50px; 
-    }
     main.shortPost .desc{
-        width: 60%;
+        max-width: 100%;
     }
     main.shortPost .article{
-        width: 60%;
+        max-width: 100%;
     }
 
     main.shortPost .md-editor-preview {
         text-align: justify;
         word-break: keep-all;
+        max-width: 100%;
     }
 }
 </style>
