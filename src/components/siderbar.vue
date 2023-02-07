@@ -201,3 +201,14 @@ aside.sidebar {
 	}
 }
 </style>
+<style scoped>
+	@media screen and (max-width: 991px) {
+	aside.sidebar{
+		min-height: 100%;
+		
+	}
+	.button .material-icons{
+		font-size: 10px;
+	}
+}
+</style>

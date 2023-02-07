@@ -169,14 +169,17 @@ const User = useUserStore()
 <style scoped>
 
 body{
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-top: 10%;
+    max-width: 100%;
 }
 
 form{
-    max-width: 420px;
-    margin: 30px auto;
+    width: 420px;
+    max-width: 100%;
+    margin: 130px auto;
     background: white;
     text-align: left;
     padding: 40px;
@@ -203,6 +206,7 @@ input{
     display: block;
     padding: 10px 6px;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
@@ -239,6 +243,24 @@ button{
     margin-top: 10px;
     font-size: 0.8em;
     font-weight: bold;
+}
+@media screen and (max-width: 991px) {
+    form{
+        width: 100%;
+        height: inherit;
+    }
+
+    form h1{
+        font-size: medium;
+    }
+    label{
+        font-size: 0.5rem;
+    }
+
+    input{
+        width: 100%;
+        font-size: medium;
+    }
 }
 
 </style>

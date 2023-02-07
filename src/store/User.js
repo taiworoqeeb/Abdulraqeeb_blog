@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
-var API = process.env.API ? decodeURI(process.env.API)
-: 'https://blogapi-v1.herokuapp.com';
+var API = process.env.API ? decodeURI(process.env.VUE_APP_API)
+: 'https://my-blog-api-fh13.onrender.com';
 
 var URL = `${API}/api/user`;
 
@@ -13,7 +13,7 @@ export const useUserStore = defineStore('user', {
         error: null,
         data: null,
     }),
-    
+
     actions:{
         async loginUser(){
             this.message = null;

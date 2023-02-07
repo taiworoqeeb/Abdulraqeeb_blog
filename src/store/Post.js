@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia'
 import ImageIcon from '@/assets/imageIcon.png'
 
-var API = process.env.API ? decodeURI(process.env.API)
-: 'https://blogapi-v1.herokuapp.com';
+var API = process.env.API ? decodeURI(process.env.VUE_APP_API)
+: 'https://my-blog-api-fh13.onrender.com';
 
 var URL = `${API}/api/blog`;
 
 export const useCreatePostStore = defineStore('createpost', {
-  state: () => ({ 
-        
+  state: () => ({
+
         image: '',
         title: '',
         desc: '',
@@ -38,7 +38,7 @@ export const useCreatePostStore = defineStore('createpost', {
           form.append('tags', this.tags);
           form.append('content', this.content);
           form.append('draft', this.draft)
-          
+
           const res = await fetch(`${URL}/createPost`, {
             method: 'POST',
             body: form
@@ -58,11 +58,11 @@ export const useCreatePostStore = defineStore('createpost', {
               this.status = false
               this.message = data.message
           }
-        
+
       } catch (error) {
-        this.error = error; 
+        this.error = error;
       }
-      
+
     }
   },
 
@@ -70,7 +70,7 @@ export const useCreatePostStore = defineStore('createpost', {
 })
 
 export const useEditPostStore = defineStore('editpost', {
-  state: () => ({ 
+  state: () => ({
         id: '',
         image: '',
         oldImage: ImageIcon,
@@ -86,7 +86,7 @@ export const useEditPostStore = defineStore('editpost', {
     }),
 
   getters: {
-    
+
   },
 
   actions: {
@@ -108,11 +108,11 @@ export const useEditPostStore = defineStore('editpost', {
             }else{
               this.oldImage = ImageIcon
             }
-            
+
         }else{
           throw Error(`${data.message}`)
         }
-        
+
       } catch (error) {
         this.error = error
       }
@@ -129,7 +129,7 @@ export const useEditPostStore = defineStore('editpost', {
             content: this.content,
             draft: this.draft
           }
-          
+
           const res = await fetch(`${URL}/updatePost/${this.id}`, {
             method: 'PUT',
             headers: {
@@ -152,11 +152,11 @@ export const useEditPostStore = defineStore('editpost', {
               this.status = false
               this.message = data.message
           }
-        
+
       } catch (error) {
-        this.error = error; 
+        this.error = error;
       }
-      
+
     },
 
     async DeleteImage(){
@@ -426,7 +426,7 @@ export const useResponseStore = defineStore('commentReply', {
       this.message = null
       this.error = null
       this.status = null
-      
+
       try {
         const res = await fetch(`${URL}/commentvote/${id}?status=upvote`, {
           method: 'PUT'

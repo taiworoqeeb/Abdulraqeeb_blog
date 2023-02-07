@@ -103,6 +103,7 @@ onMounted(() =>{
 
 .dashboard{
 	background: var(--light);
+  max-width: 100%;
 }
 
 .dashboard button {
