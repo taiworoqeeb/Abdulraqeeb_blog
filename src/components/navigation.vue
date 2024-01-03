@@ -9,23 +9,23 @@
     <img src="@/assets/logo_light.png" alt="logo">
     </router-link>
     </div>
-    
+
     <div class="mylogo" key="mylogo">
     <router-link v-if="state" to="/"><img src="@/assets/mylogo2.png" alt="mylogo"></router-link>
     <router-link v-else to="/"><img src="@/assets/mylogo.png" alt="mylogo"></router-link>
     </div>
-   
-    
+
+
 </header>
   <nav :class="{dark: state == true}">
-   
+
   <div class="links" :class="{black: state == true}" key="links">
   <div class="theme-class">
       <Theme />
     </div>
      <router-link to="/">Home</router-link>
      <router-link :to="{name: 'about'}">About</router-link>
-    <a href="https://taiworoqeeb.tech" target="_blank" rel="noreferrer noopener">Portfolio</a>
+    <a href="https://taiworoqeeb.neerstack.com" target="_blank" rel="noreferrer noopener">Portfolio</a>
   </div>
   </nav>
 </div>
@@ -51,7 +51,7 @@
     }else{
       state.value = false
     }
-    
+
 
     defineExpose({
       state
@@ -84,8 +84,8 @@ header .logo{
   height: 0px;
   margin: 5px;
   cursor: pointer;
-  
-  
+
+
 }
 
 header .mylogo{
@@ -160,7 +160,7 @@ nav .links a.router-link-exact-active:hover{
 
   nav .links{
     font-size: small;
-    
+
   }
 }
 

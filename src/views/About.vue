@@ -26,11 +26,11 @@
                     <li>VueJs (Vue3)</li>
                 </ul>
                 <br/>
-                For more information about me, you can vist my portfolio website <a class="web" :class="{black: state == true}" href="https://taiworoqeeb.tech" target="_blank" rel="noreferrer noopener"> Here </a>
+                For more information about me, you can vist my portfolio website <a class="web" :class="{black: state == true}" href="https://taiworoqeeb.neerstack.com" target="_blank" rel="noreferrer noopener"> Here </a>
                  </p>
             </article>
-        
-        
+
+
         </body>
     </main>
 </template>
@@ -115,12 +115,12 @@ useHead({
         }else{
             state.value = false
         }
-    
+
 
         defineExpose({
             state
         })
-   
+
 
 </script>
 
@@ -185,13 +185,13 @@ ul h3{
     font-style: italic;
     margin-top: 10px;
     margin-bottom: 10px;
-    
+
 }
 
 ul li{
     text-indent: 150px;
     margin-top: 0px;
-    
+
 }
 
 .web.black {
@@ -222,7 +222,7 @@ ul li{
 
 main{
     margin-bottom: 90px;
-    
+
 }
 @media screen and (max-width: 991px) {
   .about{
